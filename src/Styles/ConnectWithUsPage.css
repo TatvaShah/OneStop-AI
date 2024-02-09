@@ -1,0 +1,14 @@
+/* Page.css (for all pages) */
+h1 {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+
+  p {
+    font-size: 18px;
+    color: #666;
+    line-height: 1.6;
+  }
+
+  /* Add specific styling for each page as needed */
