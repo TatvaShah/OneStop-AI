@@ -8,6 +8,7 @@ import AboutPage from './Components/AboutPage';
 import ProductsPage from './Components/ProductsPage';
 import ConnectWithUsPage from './Components/ConnectWithUsPage';
 import ProductDetailPage from './Components/ProductDetailPage';
+import LoginSignUp from './Authentication/LoginSignUp';
 const App = () => {
   const handleSignUpClick = () => {
     // Handle the Sign Up logic here
@@ -24,6 +25,7 @@ const App = () => {
         <Route path="/products" element={<ProductsPage />} />
         <Route path="/product/:productId" element={<ProductDetailPage />} />
         <Route path="/connect" element={<ConnectWithUsPage />} />
+        <Route path="/login" element={<LoginSignUp />} />
       </Routes>
       <Footer />
     </Router>
