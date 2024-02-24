@@ -392,36 +392,7 @@ const SmartContract = () => {
                     name="maxSupply"
                   />
                 </div>
-                <div
-                  style={{
-                    color: "black",
-                    width: "100%",
-                    flexDirection: "column",
-                    display: "flex",
-                    marginTop: 15,
-                  }}
-                >
-                  <span style={{ color: "rgb(158, 200, 185)" }}>
-                    Token Decimals *
-                  </span>
-                  <Input
-                    placeholder="Token Decimals"
-                    type="number"
-                    size="large"
-                    style={{
-                      width: 150,
-                      height: 38,
-                      background: "white",
-                      color: "black",
-                      marginTop: 5,
-                    }}
-                    value={inputData?.tokenDecimals}
-                    onChange={(e) => {
-                      handleOnChange(e.target.name, e.target.value);
-                    }}
-                    name="tokenDecimals"
-                  />
-                </div>
+              
               </div>
             </div>
           </Col>
@@ -488,7 +459,7 @@ const SmartContract = () => {
                       <Radio.Button
                         style={{
                           color: "hsla(0,0%,100%,.6)",
-                          lineHeight: "none",
+                          lineHeight: "28px",
                           opacity: 1,
                         }}
                       >
@@ -497,7 +468,7 @@ const SmartContract = () => {
                       <Radio.Button
                         style={{
                           color: "hsla(0,0%,100%,.6)",
-                          lineHeight: "none",
+                          lineHeight: "28px",
                           opacity: 1,
                         }}
                       >
@@ -514,7 +485,7 @@ const SmartContract = () => {
                       <Radio.Button
                         style={{
                           color: "hsla(0,0%,100%,.6)",
-                          lineHeight: "none",
+                          lineHeight: "28px",
                           opacity: 1,
                         }}
                       >
@@ -523,7 +494,7 @@ const SmartContract = () => {
                       <Radio.Button
                         style={{
                           color: "hsla(0,0%,100%,.6)",
-                          lineHeight: "none",
+                          lineHeight: "28px",
                           opacity: 1,
                         }}
                       >
@@ -681,7 +652,7 @@ const SmartContract = () => {
                       <Radio.Button
                         style={{
                           color: "hsla(0,0%,100%,.6)",
-                          lineHeight: "none",
+                          lineHeight: "28px",
                           opacity: 1,
                         }}
                       >
@@ -690,7 +661,7 @@ const SmartContract = () => {
                       <Radio.Button
                         style={{
                           color: "hsla(0,0%,100%,.6)",
-                          lineHeight: "none",
+                          lineHeight: "28px",
                           opacity: 1,
                         }}
                       >
