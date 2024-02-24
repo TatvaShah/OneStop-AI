@@ -1,14 +1,305 @@
 /* Page.css (for all pages) */
 h1 {
-    font-size: 36px;
-    color: #333;
-    margin-bottom: 20px;
+  font-size: 36px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 18px;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Add specific styling for each page as needed */
+
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&display=swap");
+
+:root {
+  --bg: #000;
+  --white: #000;
+  --accent: #000;
+  --highlight: #03dac6;
+}
+body {
+  width: 100vw;
+  min-height: 100vh;
+  font-family: "Nunito Sans", sans-serif;
+  background: #141415;
+  overflow-x: hidden;
+}
+.home-section {
+  width: 100%;
+  min-height: 100vh;
+}
+.hero,
+.footer {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  color: var(--white);
+  font-size: clamp(4rem, 4vw, 8rem);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  /* background: url("../Images/AI-Background.gif");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed; */
+}
+
+.hero-title {
+  font-size: 77px;
+  width: 480px;
+  text-align: center;
+}
+
+.hero h1,
+.footer h1 {
+  color: transparent;
+  -webkit-text-stroke: 2px #fff;
+  -webkit-text-fill-color: rgb(0, 0, 0);
+  text-stroke: 2px #fff;
+  text-shadow: none;
+  text-align: center;
+  margin-top: 182px;
+  filter: drop-shadow(10px 8px 8px black);
+}
+.hero .scroll-line,
+.footer .scroll-line {
+  position: absolute;
+  bottom: 0;
+  width: 2px;
+  height: 60px;
+  background-color: var(--white);
+}
+.hero .hero-overlay,
+.footer .hero-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  inset: 0;
+  background: #000;
+  opacity: 0.1;
+}
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 2em;
+  background: var(--bg);
+}
+.card {
+  height: 400px;
+  aspect-ratio: 2.5;
+  display: flex;
+  margin: 2em;
+  color: var(--white);
+  text-align: center;
+  letter-spacing: 0.1em;
+  background: var(--accent);
+  backdrop-filter: blur(5px);
+  border-radius: 14px;
+  transition: all 300ms ease-out;
+  transition-property: transform opacity;
+}
+.card:nth-of-type(2n + 1) {
+  align-self: flex-start;
+}
+.card:nth-of-type(2n) {
+  align-self: flex-end;
+}
+.card > img {
+  width: 50%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 14px 0 0 14px;
+}
+.card__contents {
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5em;
+  overflow-y: scroll;
+}
+.card__contents > h2 {
+  text-transform: uppercase;
+  font-weight: 700;
+  padding-bottom: 0.5em;
+  border-bottom: 1px solid var(--white);
+}
+.card__contents > p {
+  text-align: left;
+  margin-top: 0.5em;
+  white-space: pre-wrap;
+}
+.card__contents > button {
+  border: none;
+  width: 100%;
+  color: var(--white);
+  background: transparent;
+  border: 1px solid currentcolor;
+  border-radius: 1.4em;
+  padding: 0.7em 0;
+  font-family: inherit;
+  letter-spacing: inherit;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 0.8em;
+}
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent);
+}
+.learn-btn {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  border: 0;
+  vertical-align: middle;
+  text-decoration: none;
+  background: transparent;
+  padding: 0;
+  font-size: inherit;
+  font-family: inherit;
+}
+
+.learn-btn.learn-more {
+  width: 12rem;
+  height: auto;
+}
+
+.learn-btn.learn-more .circle {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: relative;
+  display: block;
+  margin: 0;
+  width: 3rem;
+  height: 3rem;
+  background: #282936;
+  border-radius: 1.625rem;
+}
+
+.learn-btn.learn-more .circle .icon {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background: #fff;
+}
+
+.learn-btn.learn-more .circle .icon.arrow {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  left: 0.625rem;
+  width: 1.125rem;
+  height: 0.125rem;
+  background: none;
+}
+
+.learn-btn.learn-more .circle .icon.arrow::before {
+  position: absolute;
+  content: "";
+  top: -0.29rem;
+  right: 0.0625rem;
+  width: 0.625rem;
+  height: 0.625rem;
+  border-top: 0.125rem solid #fff;
+  border-right: 0.125rem solid #fff;
+  transform: rotate(45deg);
+}
+
+.learn-btn.learn-more .button-text {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0.75rem 0;
+  margin: 0 0 0 1.85rem;
+  color: #9ec8b9;
+  font-weight: 700;
+  line-height: 1.6;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.learn-btn:hover .circle {
+  width: 100%;
+}
+
+.learn-btn:hover .circle .icon.arrow {
+  background: #fff;
+  transform: translate(1rem, 0);
+}
+
+.learn-btn:hover .button-text {
+  color: #fff;
+}
+.product-home-section {
+  display: flex;
+  width: 100%;
+}
+
+.product-home-div {
+  margin: 120px 0px;
+}
+
+.product-img {
+  height: 450px;
+  width: 450px;
+}
+@media (max-width: 768px) {
+  .bg-image-home {
+    display: none;
   }
 
-  p {
-    font-size: 18px;
-    color: #666;
-    line-height: 1.6;
+  .hero-title {
+    width: 100%;
+    padding: 120px 0px;
   }
 
-  /* Add specific styling for each page as needed */
+  .hero {
+    background: url("../Images/AI-Background.gif");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+  .product-home-div {
+    margin: 0px 0px 120px 0px;
+  }
+  .product-home-section {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .product-home-section > div {
+    margin-left: 40px;
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 425px) {
+  .hero-title {
+    width: 100%;
+    padding: 0px 0px 120px 0px;
+  }
+  .product-img {
+  height: 320px;
+  width: 320px;
+}
+}

@@ -1,14 +1,14 @@
 // Header.js
 import React, { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import {  NavLink } from "react-router-dom";
 import "../Styles/Header.css"; // Import the CSS file
 
 const Header = ({ handleSignUpClick }) => {
-  const [showModal, setShowModal] = useState(false);
+  // const [showModal, setShowModal] = useState(false);
 
-  const handleLoginClick = () => {
-    setShowModal(true);
-  };
+  // const handleLoginClick = () => {
+  //   setShowModal(true);
+  // };
 
   const [showNavbar, setShowNavbar] = React.useState(false);
 
