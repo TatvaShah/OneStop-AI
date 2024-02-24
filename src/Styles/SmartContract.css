@@ -26,3 +26,7 @@
   box-shadow: 0px 0px var(--main-color);
   transform: translate(3px, 3px);
 }
+
+.form-select__control  {
+    margin-top: 5px;
+}

@@ -99,6 +99,7 @@ const SmartContract = () => {
                     onChange={(e) => {
                       handleOnChange("tokenType", e);
                     }}
+                    
                     value={inputData?.tokenType}
                     options={TokenTypeOptions}
                     name="choices-publish-status-input"
@@ -168,6 +169,7 @@ const SmartContract = () => {
                       height: 38,
                       background: "white",
                       color: "black",
+                      marginTop: 5
                     }}
                     value={inputData?.price}
                     onChange={(e) => {
@@ -701,7 +703,13 @@ const SmartContract = () => {
                 </div>
 
                 <div style={{ marginTop: 15 }}>
-                  <div style={{ padding: 10, backgroundColor: "lightblue", color: "black" }}>
+                  <div
+                    style={{
+                      padding: 10,
+                      backgroundColor: "lightblue",
+                      color: "black",
+                    }}
+                  >
                     <Input
                       type={"checkbox"}
                       checked={inputData?.checkterms}
