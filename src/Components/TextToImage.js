@@ -1,7 +1,12 @@
+import { Input } from "antd";
 import React, { useState } from "react";
 import "../Styles/TextToImage.css"
 const TextToImage = () => {
     const [promptText, setPromptText] = useState("")
+    const [projectName, setProjectName] = useState("");
+    const [colorCode, setColorCode] = useState("");
+    const [industries, setIndustries] = useState("");
+    const [textBelowImage, setTextBelowImage] = useState(false);
 
     const handleGenerateBtn = (e) => {
 
@@ -21,6 +26,86 @@ const TextToImage = () => {
           <div
             id="generator-prompt"
             class="prompt but"
+            style={{ marginBottom: 20, gap: 20, padding: 10 }}
+          >
+            <div id="generator-prompt-image"></div>
+            <div id="generator-prompt-text" class="but">
+              <label>Project Name</label>
+              <Input
+                id=""
+                class="but"
+                type="text"
+                placeholder="Project Name"
+                rows="1"
+                value={projectName}
+                onChange={(e) => {
+                  setProjectName(e?.target?.value);
+                }}
+                style={{ marginTop: 5 }}
+              />
+            </div>
+            <div id="generator-prompt-text" class="but">
+              <label>Colour</label>
+              <Input
+                id=""
+                class="but"
+                type="text"
+                placeholder="Colour"
+                rows="1"
+                value={colorCode}
+                onChange={(e) => {
+                  setColorCode(e?.target?.value);
+                }}
+                style={{ marginTop: 5 }}
+              />
+            </div>
+            <div id="generator-prompt-text" class="but">
+              <label>Industries</label>
+              <Input
+                id=""
+                class="but"
+                type="text"
+                placeholder="Industries"
+                rows="1"
+                value={industries}
+                onChange={(e) => {
+                  setIndustries(e?.target?.value);
+                }}
+                style={{ marginTop: 5 }}
+              />
+            </div>
+            <div
+              id="generator-prompt-text"
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+              }}
+              class="but"
+            >
+              <label style={{ width: "50%" }}>Text Below Image</label>
+              <Input
+                id=""
+                class=""
+                type="checkbox"
+                checked={textBelowImage}
+                onChange={(e) => {
+                  setTextBelowImage(e?.target?.checked);
+                }}
+                style={{
+                  marginTop: 5,
+                  height: "max-content",
+                  width: "max-content",
+                  borderStyle: "hidden",
+                }}
+              />
+            </div>
+          </div>
+        </div>
+        <div id="generator-main" class="top-10">
+          <div
+            id="generator-prompt"
+            class="prompt but"
             style={{ marginBottom: 20 }}
           >
             <div id="generator-prompt-image"></div>
@@ -34,17 +119,26 @@ const TextToImage = () => {
                 rows="1"
                 value={promptText}
                 onChange={(e) => {
-                    setPromptText(e?.target?.value)
-                }} 
+                  setPromptText(e?.target?.value);
+                }}
                 style={{ height: "30px", border: "none", outline: "none" }}
               ></textarea>
             </div>
           </div>
 
-          <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: 20 }}>
-            <button onClick={(e) => {
-                handleGenerateBtn(e)
-            }} class="btn">
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "flex-end",
+              marginBottom: 20,
+            }}
+          >
+            <button
+              onClick={(e) => {
+                handleGenerateBtn(e);
+              }}
+              class="text-to-image-btn"
+            >
               <svg
                 height="24"
                 width="24"

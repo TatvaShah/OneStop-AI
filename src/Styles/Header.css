@@ -57,10 +57,10 @@
   height: 2px;
   background-color: #574c4c;
 }
-.main-view {
+/* .main-view {
   height: calc(100vh - 60px);
   overflow: auto;
-}
+} */
 @media (max-width: 768px) {
   .nav-elements ul li:not(:last-child) {
     margin-right: 30px;

@@ -22,15 +22,14 @@ const App = () => {
 
   return (
     <Router>
-      <Header handleSignUpClick={handleSignUpClick} />
       <ScrollToTop />
+      <Header handleSignUpClick={handleSignUpClick} />
       <div className="main-view">
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
+          <Route path="/product" element={<ProductsPage />} />
           <Route path="/texttoimage" element={<TextToImage />} />
-          <Route path="/smartcontract" element={<SmartContract />} />
-          <Route path="/products" element={<ProductsPage />} />
           <Route path="/product/:productId" element={<ProductDetailPage />} />
           <Route path="/connect" element={<ConnectWithUsPage />} />
           <Route path="/login" element={<LoginSignUp />} />

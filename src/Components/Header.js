@@ -73,10 +73,10 @@ const Header = ({ handleSignUpClick }) => {
               <NavLink to="/">Home</NavLink>
             </li>
             <li>
-              <NavLink to="/blogs">About</NavLink>
+              <NavLink to="/about">About</NavLink>
             </li>
             <li>
-              <NavLink to="/projects">Products</NavLink>
+              <NavLink to="/product">Products</NavLink>
             </li>
             <li>
               <NavLink to="/about">Connect With Us</NavLink>
