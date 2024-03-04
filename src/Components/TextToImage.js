@@ -48,20 +48,44 @@ const TextToImage = () => {
       });
   };
 
-const handleDownload = (imageUrl) => {
-  // Replace 'image-url.jpg' with the URL or path of your image
-  // const imageUrl = "image-url.jpg";
+  const handleDownload = async (imageUrl) => {
+    try {
+   const proxyUrl = "https://cors-anywhere.herokuapp.com/";
+   
+   const OPENAI_API_KEY =
+        "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"; //OpenAI API key
 
-  // Create a temporary link element
-  const link = document.createElement("a");
-  link.href = imageUrl;
-  link.download = "image.jpg"; // Specify the filename for the downloaded image
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-};
+      const headers = {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${OPENAI_API_KEY}`,
+      };
 
+      // Fetch the image data
+      const response = await fetch(proxyUrl + imageUrl, {
+        method: "GET",
+        headers: headers,
+      });
+      const blob = await response.blob();
 
+      // Create a blob URL
+      const blobUrl = window.URL.createObjectURL(blob);
+
+      // Create a link element
+      const aTag = document.createElement("a");
+      aTag.href = blobUrl;
+      aTag.setAttribute("download", "Image.png");
+
+      // Append the link to the body and click it
+      document.body.appendChild(aTag);
+      aTag.click();
+
+      // Clean up by removing the link and revoking the blob URL
+      document.body.removeChild(aTag);
+      window.URL.revokeObjectURL(blobUrl);
+    } catch (error) {
+      console.error("Error downloading image:", error);
+    }
+  };
   return (
     <div>
       <div id="generator">
