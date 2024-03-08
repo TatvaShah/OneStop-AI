@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import "./LoginSignUp.css";
 import { Link } from "react-router-dom";
 const Login = () => {
-  const [switchState, setSwitchState] = useState(false);
   return (
     <div class={`login-container`}>
       <div class="forms-container">
