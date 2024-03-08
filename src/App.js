@@ -8,11 +8,12 @@ import AboutPage from "./Components/AboutPage";
 import ProductsPage from "./Components/ProductsPage";
 import ConnectWithUsPage from "./Components/ConnectWithUsPage";
 import ProductDetailPage from "./Components/ProductDetailPage";
-import LoginSignUp from "./Authentication/LoginSignUp";
+import Login from "./Authentication/Login";
 import TextToImage from "./Components/TextToImage";
-import SmartContract from "./Components/SmartContract";
 
 import ScrollToTop from "./ScrollToTop";
+import SignUp from "./Authentication/SignUp";
+import OsiToken from "./Components/OsiToken";
 const App = () => {
   const handleSignUpClick = () => {
     // Handle the Sign Up logic here
@@ -29,10 +30,11 @@ const App = () => {
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/product" element={<ProductsPage />} />
-          <Route path="/texttoimage" element={<TextToImage />} />
           <Route path="/product/:productId" element={<ProductDetailPage />} />
           <Route path="/connect" element={<ConnectWithUsPage />} />
-          <Route path="/login" element={<LoginSignUp />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/ositoken" element={<OsiToken />} />
         </Routes>
       </div>
       <Footer />

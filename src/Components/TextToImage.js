@@ -9,11 +9,12 @@ const TextToImage = () => {
   const [industries, setIndustries] = useState("");
   const [textBelowImage, setTextBelowImage] = useState(false);
   const [generatedImage, setGeneratedImage] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
+  // eslint-disable-next-line
   const [model, setModel] = useState("dall-e-2");
+  // eslint-disable-next-line
   const [numberOfImages, setNumberOfImages] = useState(1);
+  // eslint-disable-next-line
   const [size, setSize] = useState("1024x1024");
-  const [downloading, setDownloading] = useState(false);
 
   const handleGenerateBtn = (e) => {
     e.preventDefault();
@@ -50,9 +51,9 @@ const TextToImage = () => {
 
   const handleDownload = async (imageUrl) => {
     try {
-   const proxyUrl = "https://cors-anywhere.herokuapp.com/";
-   
-   const OPENAI_API_KEY =
+      const proxyUrl = "https://cors-anywhere.herokuapp.com/";
+
+      const OPENAI_API_KEY =
         "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"; //OpenAI API key
 
       const headers = {
@@ -270,14 +271,14 @@ const TextToImage = () => {
                   src="https://img-cdn.pixlr.com/image-generator/history/65772796905f29530816ea40/4ca9ba3d-c418-4153-a36a-77f4182236a7/medium.webp"
                   width="500"
                   height="500"
-                  alt="Scary robot"
+                  alt="Scary"
                 />
                 <img
                   loading="lazy"
                   src="https://img-cdn.pixlr.com/image-generator/history/6565c8dff9ef18d69df3e3a2/fe1887b5-015e-4421-8c6a-1364d2f5b1e9/medium.webp"
                   width="500"
                   height="500"
-                  alt="photo of a rhino dressed suit and tie sitting at a table in a bar with a bar stools, award winning photography, Elke vogelsang"
+                  alt="img-3"
                 />
                 <img
                   loading="lazy"
@@ -291,7 +292,7 @@ const TextToImage = () => {
                   src="https://img-cdn.pixlr.com/image-generator/history/65820e33b3f11817959a58f8/65820e33b3f11817959a58f4/medium.webp"
                   width="500"
                   height="500"
-                  alt="Create an image of a 25-year-old woman with beach tan skin and short blonde hair, green eyes, real person."
+                  alt="img-2"
                 />
                 <img
                   loading="lazy"
@@ -349,11 +350,11 @@ const TextToImage = () => {
                   alt="CA DEV"
                 />
                 <img
-                  loading="lazy"
+                  // loading="lazy"
                   src="https://img-cdn.pixlr.com/image-generator/history/65bbf7f95750626a42ba7a2b/ba0bb2cc-7a80-4911-9a35-a607bd1fcbc3/medium.webp"
                   width="500"
                   height="500"
-                  alt="steampunk makeup, in the style of vray tracing, colorful impasto, uhd image, indonesian art, fine feather details with bright red and yellow and green and pink and orange colours, intricate patterns and details, dark cyan and amber makeup. Rich colourful plumes. Victorian style."
+                  alt="img-123"
                 />
               </div>
               <div id="generator-feed-login-overlay">

@@ -1,6 +1,6 @@
 // Header.js
-import React, { useState } from "react";
-import {  NavLink } from "react-router-dom";
+import React from "react";
+import { NavLink } from "react-router-dom";
 import "../Styles/Header.css"; // Import the CSS file
 
 const Header = ({ handleSignUpClick }) => {
@@ -79,7 +79,7 @@ const Header = ({ handleSignUpClick }) => {
               <NavLink to="/product">Products</NavLink>
             </li>
             <li>
-              <NavLink to="/about">Connect With Us</NavLink>
+              <NavLink to="/ositoken">OSI Token</NavLink>
             </li>
             <li>
               <NavLink to="/login">Log In / Sign Up</NavLink>

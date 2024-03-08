@@ -1,11 +1,10 @@
 // ProductsPage.js
-import React from 'react';
-import ProductCard from './ProductCard';
+import React from "react";
 import { useNavigate } from "react-router-dom";
 
 import ProductImage1 from "../Images/Smart-content-creation-Image.png";
 import ProductImage2 from "../Images/Text-To-Image.png";
-import "../Styles/HomePage.css"
+import "../Styles/HomePage.css";
 
 const ProductsPage = () => {
   const navigate = useNavigate();
