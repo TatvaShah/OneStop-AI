@@ -22,3 +22,14 @@ export async function registerVerifyOtp(credentials) {
   const _data = await data.json();
   return _data;
 }
+export async function loginUser(credentials) {
+  const data = await fetch(`${baseURL}/user/login`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(credentials),
+  });
+  const _data = await data.json();
+  return _data;
+}
