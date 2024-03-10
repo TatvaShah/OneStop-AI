@@ -1,5 +1,5 @@
 // Header.js
-import React from "react";
+import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import "../Styles/Header.css"; // Import the CSS file
 import useToken from "../hooks/useToken";
@@ -13,6 +13,12 @@ const Header = ({ handleSignUpClick }) => {
   const handleShowNavbar = () => {
     setShowNavbar(!showNavbar);
   };
+
+  useEffect(() => {
+    if (token) {
+      setShowNavbar(false);
+    }
+  }, [token]);
 
   return (
     // <nav className="navbar">

@@ -13,6 +13,8 @@ import { ToastProvider } from "react-toast-notifications";
 import ScrollToTop from "./ScrollToTop";
 import SignUp from "./Authentication/SignUp";
 import OsiToken from "./Components/OsiToken";
+import ManageToken from "./Components/ManageToken";
+import "bootstrap/dist/css/bootstrap.min.css";
 const App = () => {
   return (
     <ToastProvider
@@ -34,6 +36,7 @@ const App = () => {
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/ositoken" element={<OsiToken />} />
+            <Route path="/manageToken" element={<ManageToken />} />
           </Routes>
         </div>
         <Footer />

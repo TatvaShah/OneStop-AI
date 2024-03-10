@@ -25,8 +25,8 @@ p {
 body {
   width: 100vw;
   min-height: 100vh;
-  font-family: "Nunito Sans", sans-serif;
-  background: #141415;
+  font-family: "Nunito Sans", sans-serif !important;
+  background: #141415 !important;
   overflow-x: hidden;
 }
 .home-section {
@@ -299,7 +299,7 @@ body {
     padding: 0px 0px 120px 0px;
   }
   .product-img {
-  height: 320px;
-  width: 320px;
-}
+    height: 320px;
+    width: 320px;
+  }
 }
