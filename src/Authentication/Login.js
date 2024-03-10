@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./LoginSignUp.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { loginUser } from "../libs/api";
 import { useToasts } from "react-toast-notifications";
+import useToken from "../hooks/useToken";
 const Login = () => {
+  const { setToken, token, setUserDetails } = useToken();
   const { addToast } = useToasts();
+  const navigate = useNavigate();
   const [inputData, setInputData] = useState({
     email: "",
     password: "",
@@ -20,6 +23,28 @@ const Login = () => {
     const userData = await loginUser(inputData);
     if (userData.status) {
       console.log("userData: ", userData);
+      const usertoken = {
+        success: true,
+        response: {
+          id: userData?.data?.userDetail?._id,
+          firstName: userData?.data?.userDetail?.name,
+
+          userName: userData?.data?.userDetail?.eamil,
+          email: userData?.data?.userDetail?.email,
+          token: userData?.data?.token,
+        },
+      };
+      setToken(usertoken);
+      setUserDetails({
+        id: userData?.data?.userDetail?._id,
+        firstName: userData?.data?.userDetail?.name,
+
+        userName: userData?.data?.userDetail?.eamil,
+        email: userData?.data?.userDetail?.email,
+        token: userData?.data?.token,
+      });
+      navigate("/");
+      // setUserData(userData?.data?.token);
       addToast("Login Successfully!", {
         appearance: "success",
         autoDismiss: true,
@@ -31,6 +56,12 @@ const Login = () => {
       });
     }
   };
+
+  useEffect(() => {
+    if (token) {
+      navigate("/");
+    }
+  }, [navigate, token]);
 
   return (
     <div class={`login-container`}>

@@ -1,99 +1,184 @@
-.header-container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 15px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 100%;
+.navigation {
+  height: 70px;
+  background: #262626;
 }
-
-.navbar {
-  height: 60px;
-  background-color: #000000;
-  position: relative;
+.brand {
+  position: absolute;
+  padding-left: 20px;
+  float: left;
+  line-height: 70px;
+  text-transform: uppercase;
+  font-size: 1.4em;
 }
-
-.logo {
-}
-
-.menu-icon {
-  display: none;
-}
-
-.nav-elements {
-}
-
-.nav-elements ul {
-  display: flex;
-  justify-content: space-between;
-  list-style-type: none;
-}
-
-.nav-elements ul li:not(:last-child) {
-  margin-right: 60px;
-}
-
-.nav-elements ul a {
-  font-size: 16px;
-  font-weight: 400;
-  color: #ffffff;
+.brand a,
+.brand a:visited {
+  color: #fff;
   text-decoration: none;
 }
+.nav-container {
+  max-width: 100%;
+  margin: 0 40px;
+}
+nav {
+  float: right;
+}
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+nav ul li {
+  float: left;
+  position: relative;
+}
+nav ul li a {
+  display: block;
+  padding: 0 20px;
+  line-height: 70px;
+  background: #262626;
+  color: #fff;
+  text-decoration: none;
+}
+/* nav ul li a:hover,
+nav ul li a:visited:hover {
+  background: #2581dc;
+  color: #fff;
+} */
+nav ul li a:not(:only-child):after,
+nav ul li a:visited:not(:only-child):after {
+  padding-left: 4px;
+  content: " ▾";
+}
+nav ul li ul li {
+  min-width: 190px;
+}
+nav ul li ul li a {
+  padding: 15px;
+  line-height: 20px;
+}
 
-.nav-elements ul a.active {
+.custom-li-hover:hover:after {
+  background-color: #e3cd9f;
+  bottom: -4px;
+  content: "";
+  height: 2px;
+  left: 7px;
+  position: absolute;
+  width: 90%;
+  top: 52px;
+}
+.custom-li-hover a.active:after {
+  background-color: #e3cd9f;
+  bottom: -4px;
+  content: "";
+  height: 2px;
+  left: 7px;
+  position: absolute;
+  width: 90%;
+  top: 52px;
+}
+.custom-li-hover a.active {
   color: #e3cd9f;
   font-weight: 500;
   position: relative;
 }
 
-.nav-elements ul a.active::after {
-  content: "";
+.nav-dropdown {
   position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background-color: #574c4c;
+  display: none;
+  z-index: 1;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
 }
+/* Mobile navigation */
+.nav-mobile {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #262626;
+  height: 70px;
+  width: 70px;
+}
+
 .main-view {
   min-height: calc(100vh - 124px);
   overflow: auto;
-}
-@media (max-width: 768px) {
-  .nav-elements ul li:not(:last-child) {
-    margin-right: 30px;
-  }
+  width: 100%;
 }
 
-@media (max-width: 600px) {
-  .menu-icon {
+@media only screen and (max-width: 798px) {
+  .nav-mobile {
     display: block;
-    cursor: pointer;
   }
 
-  .nav-elements {
-    position: absolute;
-    right: 0;
-    top: 60px;
-    background-color: #000000;
-    width: 0px;
-    height: calc(100vh - 60px);
-    transition: all 0.3s ease-in;
-    overflow: hidden;
+  .nav-container {
+    max-width: 100%;
+    margin: 0 auto;
   }
-
-  .nav-elements.active {
-    width: 270px;
+  nav {
+    width: 100%;
+    padding: 70px 0 15px;
   }
-
-  .nav-elements ul {
-    display: flex;
-    flex-direction: column;
+  nav ul li {
+    float: none;
   }
-
-  .nav-elements ul li {
-    margin-right: unset;
-    margin-top: 22px;
+  nav ul li a {
+    padding: 15px;
+    line-height: 20px;
   }
+  nav ul li ul li a {
+    padding-left: 30px;
+  }
+  .nav-dropdown {
+    position: static;
+  }
+}
+@media screen and (min-width: 799px) {
+  .nav-list {
+    display: block !important;
+  }
+}
+#nav-toggle {
+  position: absolute;
+  left: 18px;
+  top: 22px;
+  cursor: pointer;
+  padding: 10px 35px 16px 0px;
+}
+#nav-toggle span,
+#nav-toggle span:before,
+#nav-toggle span:after {
+  cursor: pointer;
+  border-radius: 1px;
+  height: 5px;
+  width: 35px;
+  background: #fff;
+  position: absolute;
+  display: block;
+  content: "";
+  transition: all 300ms ease-in-out;
+}
+#nav-toggle span:before {
+  top: -10px;
+}
+#nav-toggle span:after {
+  bottom: -10px;
+}
+#nav-toggle.active span {
+  background-color: transparent;
+}
+#nav-toggle.active span:before,
+#nav-toggle.active span:after {
+  top: 0;
+}
+#nav-toggle.active span:before {
+  transform: rotate(45deg);
+}
+#nav-toggle.active span:after {
+  transform: rotate(-45deg);
+}
+article {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 10px;
 }
