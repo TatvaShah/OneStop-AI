@@ -127,6 +127,61 @@ const ProductsPage = () => {
             />{" "}
           </div>
         </div>
+
+        <div className="product-home-div">
+          <div className="product-home-section">
+            <div
+              style={{
+                borderRadius: 25,
+                boxShadow: "0px 10px 42px 22px rgba(0,0,0,0.1)",
+                padding: 20,
+                fontFamily: "monospace",
+                background: "#1b4242",
+                color: "#9EC8B9",
+                marginLeft: 40,
+              }}
+              className=""
+            >
+              <h1
+                className=""
+                style={{ color: "#ff6a00", textAlign: "center" }}
+              >
+                Smart Content Generation
+              </h1>
+
+              <h5
+                className=""
+                style={{ fontSize: 20, marginTop: 60, fontFamily: "monospace" }}
+              >
+                This will generate Smart Content for your Medium articles, blogs and whitepaper.
+              </h5>
+              <h5
+                className=""
+                style={{ fontSize: 20, marginTop: 30, fontFamily: "monospace" }}
+              >
+                {" "}
+                Generate Articles and publish them.
+              </h5>
+              <div style={{ textAlign: "center", marginTop: 50 }}>
+                <button
+                  onClick={() => navigate("/product/smart-content")}
+                  className="learn-btn learn-more"
+                >
+                  <span className="circle" aria-hidden="true">
+                    <span className="icon arrow"></span>
+                  </span>
+                  <span className="button-text">Learn More</span>
+                </button>
+              </div>
+            </div>
+            <img
+              src={ProductImage2}
+              className="product-img img-fluid"
+              alt="ProductImage2"
+              style={{ marginRight: 40 }}
+            />{" "}
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -2,39 +2,31 @@ import React, { useState } from "react";
 import "../Styles/SmartContract.css";
 import Select from "react-select";
 import { Input, Row, Col, Switch, Space, Radio } from "antd";
+import axios from "axios";
 
 const TokenTypeOptions = [
-  { label: "HelloERC20", value: "HelloERC20" },
-  { label: "SimpleERC20", value: "SimpleERC20" },
-  { label: "StandardERC20", value: "StandardERC20" },
-  { label: "BurnableERC20", value: "BurnableERC20" },
-  { label: "MintableERC20", value: "MintableERC20" },
-  { label: "CommonERC20", value: "CommonERC20" },
-  { label: "TaxableERC20", value: "TaxableERC20" },
-  { label: "AntiWhaleERC20", value: "AntiWhaleERC20" },
-  { label: "LiquidERC20", value: "LiquidERC20" },
-  { label: "SwappableERC20", value: "SwappableERC20" },
-  { label: "DeflationaryERC20", value: "DeflationaryERC20" },
-  { label: "UnlimitedERC20", value: "UnlimitedERC20" },
-  { label: "AmazingERC20", value: "AmazingERC20" },
-  { label: "PowerfulERC20", value: "PowerfulERC20" },
-  { label: "PausableERC20", value: "PausableERC20" },
+  { label: "Standard - ERC20 [Live]", value: "ERC20" },
+  { label: "Standard - BEP20 [Live}", value: "BEP20" },
+  { label: "Standard - SOL [Releasing Soon]", value: "SOL" },
 ];
 
 const NetworkOptions = [
-  { label: "Goerli - Testnet", value: "ethereum_goerli" },
-  { label: "Ethereum - Mainnet", value: "ethereum_mainnet" },
-  { label: "Sepolia - Testnet", value: "ethereum_sepolia" },
+  { label: "BNB Smart Chain - Mainnet", value: "bep20Main" },
+  { label: "Ethereum - Mainnet", value: "erc20Main" },
+  { label: "Solana - Mainnet", value: "solMain" }
 ];
 
 const SmartContract = () => {
+
+  const [contract, setContract] = useState("");
+
   const [inputData, setInputData] = useState({
     tokenType: {},
     networkType: {},
     price: "",
     tokenName: "",
     tokenSysmbol: "",
-    tokenDecimals: "",
+    tokenDecimals: "18",
     initalSupply: "",
     maxSupply: "",
     checkterms : false,
@@ -49,6 +41,36 @@ const SmartContract = () => {
 
     }
   };
+
+  const handleFormSubmission = () => {
+    console.log("Submission Called");
+    const OPENAI_API_KEY =
+      "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"; //OpenAI API key
+
+    const apiUrl = "https://api.openai.com/v1/chat/completions";
+
+    const headers = {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${OPENAI_API_KEY}`,
+    };
+
+    const data = {
+      messages: [{role: "system", content: `make me an entire "BEP-20" smart contract with all necessary functions ready to deploy on "BNB Smart Chain Mainnet" with your best capability. In the contract header I want this line commented at the top "This contract is created using OneStop AI". The TOKEN NAME is "OneStop AI", The TOKEN SYMBOL is "OSI", TOKEN DECIMAL is ${inputData.tokenDecimals}, TOKEN MAX SUPPLY IS "10,000,000,000". Make sure all the functions are there in the contract and no additional text from your side.`}],
+      model: "gpt-3.5-turbo"
+    };
+
+    axios
+      .post(apiUrl, data, {
+        headers: headers,
+      })
+      .then((response) => {
+        if (response?.status === 200) {
+          console.log("Response :", response.data);
+          setContract(response.data?.choices[0].message.content);
+        }
+        console.log("Contract :: ",response.data?.choices[0].message.content);
+      });
+  }
 
   return (
     <div>
@@ -99,7 +121,7 @@ const SmartContract = () => {
                     onChange={(e) => {
                       handleOnChange("tokenType", e);
                     }}
-                    
+
                     value={inputData?.tokenType}
                     options={TokenTypeOptions}
                     name="choices-publish-status-input"
@@ -151,7 +173,7 @@ const SmartContract = () => {
                   flex: "30%",
                 }}
               >
-                <div
+                {/* <div
                   style={{
                     color: "black",
                     width: "100%",
@@ -177,7 +199,7 @@ const SmartContract = () => {
                     }}
                     name="price"
                   />
-                </div>
+                </div> */}
               </Col>
             </Row>
           </div>
@@ -231,7 +253,7 @@ const SmartContract = () => {
                     Token Name *
                   </span>
                   <Input
-                    placeholder="Token Name"
+                    placeholder="OneStop AI"
                     type="text"
                     size="large"
                     style={{
@@ -261,7 +283,7 @@ const SmartContract = () => {
                     Token Symbol *
                   </span>
                   <Input
-                    placeholder="Token Symbol"
+                    placeholder="OSI"
                     type="text"
                     size="large"
                     style={{
@@ -331,7 +353,7 @@ const SmartContract = () => {
                 >
                   Token supply required fields{" "}
                 </p>
-                <div
+                {/* <div
                   style={{
                     color: "black",
                     width: "100%",
@@ -359,7 +381,7 @@ const SmartContract = () => {
                     }}
                     name="initalSupply"
                   />
-                </div>
+                </div> */}
                 <div
                   style={{
                     color: "black",
@@ -392,7 +414,7 @@ const SmartContract = () => {
                     name="maxSupply"
                   />
                 </div>
-              
+
               </div>
             </div>
           </Col>
@@ -410,7 +432,22 @@ const SmartContract = () => {
               flex: "65%",
             }}
           >
-            <div id="generator-main" class="top-10">
+            <div>
+            <button
+                      className="btn btn-secondary mt-4"
+                      data-dismiss="modal"
+                      aria-label="Close"
+                      style={{
+                        fontWeight: 700,
+                        backgroundColor: "rgb(156 89 69)",
+                        borderColor: "rgb(156 89 69)",
+                      }}
+                      onClick={() => handleFormSubmission()}
+                    >
+                      <span>Submit</span>
+                    </button>
+            </div>
+            {/* <div id="generator-main" class="top-10">
               <div
                 id="generator-prompt"
                 class="prompt but"
@@ -700,9 +737,13 @@ const SmartContract = () => {
 
                 <button class="next-button">Next →</button>
               </div>
-            </div>
+            </div> */}
           </Col>
         </Row>
+        <div style={{color:"#ffffff"}}>
+          <p>Smart Contract</p>
+          {contract}
+        </div>
       </div>
     </div>
   );
