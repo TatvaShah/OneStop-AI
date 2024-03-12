@@ -4,10 +4,15 @@ const OsiToken = () => {
   return (
     <div>
       <h1 style={{ color: "white" }}>OSI Token</h1>
-      <p style={{ color: "white" }}>
-        We are a team of AI enthusiasts dedicated to providing cutting-edge
-        solutions.
-      </p>
+      <ul>
+        <ol>USP, GOAL</ol>
+        <ol>WhitePaper</ol>
+        <ol>RoadMap</ol>
+        <ol>Tokenomics</ol>
+        <ol>Team</ol>
+        <ol>Graph</ol>
+        <ol>Social</ol>
+      </ul>
     </div>
   );
 };
