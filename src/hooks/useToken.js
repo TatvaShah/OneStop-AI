@@ -9,7 +9,6 @@ export default function useToken() {
   const getUserDetails = () => {
     const userString = localStorage.getItem("userDetails");
     const userDetailsData = JSON.parse(userString);
-    console.log("userDetailsData: ", userDetailsData);
     return userDetailsData;
   };
 
@@ -21,7 +20,6 @@ export default function useToken() {
     setToken(userToken.success);
   };
   const saveUserDetails = (userDetails) => {
-    console.log("userDetails: ", userDetails);
     localStorage.setItem("userDetails", JSON.stringify(userDetails));
     setUserDetails(userDetails);
   };

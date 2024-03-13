@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { registerUser, registerVerifyOtp } from "../libs/api";
 import { useToasts } from "react-toast-notifications";
 import OtpInput from "react-otp-input";
+import { MyContext } from "../hooks/MyContextProvider";
 
 const SignUp = () => {
   const { addToast } = useToasts();
+  const { token } = useContext(MyContext);
   const navigate = useNavigate();
   const [inputData, setInputData] = useState({
     name: "",
@@ -24,14 +26,16 @@ const SignUp = () => {
 
     const registerData = await registerUser(inputData);
 
-    console.log("registerData: ", registerData);
     if (registerData.status) {
-      setStep("step2");
-      console.log("registerData: ", registerData);
-      addToast("Otp Send Successfully!", {
-        appearance: "success",
-        autoDismiss: true,
-      });
+      // setStep("step2");
+      navigate("/login");
+      addToast(
+        "Email id Send Successfully! You can Verify Your Account through Email.",
+        {
+          appearance: "success",
+          autoDismiss: true,
+        }
+      );
     } else {
       addToast(registerData.message, {
         appearance: "error",
@@ -54,14 +58,8 @@ const SignUp = () => {
 
       const registerData = await registerVerifyOtp(formData);
 
-      console.log("registerData: ", registerData);
       if (registerData.status) {
         navigate("/login");
-        // console.log("registerData: ", registerData);
-        // addToast(registerData.message, {
-        //   appearance: "success",
-        //   autoDismiss: true,
-        // });
       } else {
         addToast(registerData.message, {
           appearance: "error",
@@ -70,6 +68,13 @@ const SignUp = () => {
       }
     }
   };
+
+  useEffect(() => {
+    if (token) {
+      navigate("/");
+    }
+  }, [navigate, token]);
+
   return (
     <>
       <div className="login-container">
@@ -81,11 +86,11 @@ const SignUp = () => {
             }}
             style={{ marginBottom: 20 }}
             action="#"
-            class="sign-up-form"
+            className="sign-up-form"
           >
-            <h2 class="title">Sign up</h2>
-            <div class="input-field">
-              <i class="fas fa-user"></i>
+            <h2 className="title">Sign up</h2>
+            <div className="input-field">
+              <i className="fas fa-user"></i>
               <input
                 value={inputData?.name}
                 name="name"
@@ -96,8 +101,8 @@ const SignUp = () => {
                 placeholder="Full Name"
               />
             </div>
-            <div class="input-field">
-              <i class="fas fa-envelope"></i>
+            <div className="input-field">
+              <i className="fas fa-envelope"></i>
               <input
                 value={inputData?.email}
                 name="email"
@@ -108,8 +113,8 @@ const SignUp = () => {
                 placeholder="Email"
               />
             </div>
-            <div class="input-field">
-              <i class="fas fa-lock"></i>
+            <div className="input-field">
+              <i className="fas fa-lock"></i>
               <input
                 value={inputData?.password}
                 name="password"
@@ -123,11 +128,11 @@ const SignUp = () => {
             <input
               style={{ marginTop: 10 }}
               type="submit"
-              class="btn"
+              className="btn btn-secondary mt-4"
               value="Sign up"
             />
             <div style={{ marginTop: 20 }}>
-              <Link to={"/login"} class="social-text">
+              <Link to={"/login"} className="social-text">
                 Or Sign IN
               </Link>
             </div>

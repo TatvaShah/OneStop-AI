@@ -84,10 +84,11 @@ nav ul li ul li a {
 }
 
 .nav-dropdown {
-  position: absolute;
-  display: none;
-  z-index: 1;
-  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+    position: absolute;
+    display: none;
+    right: 0;
+    z-index: 1;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
 }
 /* Mobile navigation */
 .nav-mobile {

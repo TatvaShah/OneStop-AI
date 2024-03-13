@@ -27,6 +27,7 @@ body {
   min-height: 100vh;
   font-family: "Nunito Sans", sans-serif !important;
   background: #141415 !important;
+  color: white !important;
   overflow-x: hidden;
 }
 .home-section {

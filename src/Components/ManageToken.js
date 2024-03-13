@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import "../Styles/ManageToken.css";
-import { Modal, Label, Input, ModalBody, ModalHeader } from "reactstrap";
+import { Modal,  ModalBody, ModalHeader } from "reactstrap";
 const ManageToken = () => {
   const [showModel, setShowModel] = useState(false);
   const [selectedTokenDetails, setSelectedTokenDetails] = useState({});
   return (
     <div>
-      <ol class="list list-view-filter">
+      <ol className="list list-view-filter">
         <li
           style={{ cursor: "pointer" }}
           onClick={() => {
@@ -88,7 +88,7 @@ const ManageToken = () => {
       </ol>
 
       <h4 className="text-white mt-2 mb-3 ">Token History</h4>
-      <ol class="list grid-view-filter">
+      <ol className="list grid-view-filter">
         <li
           style={{ cursor: "pointer" }}
           onClick={() => {
@@ -178,7 +178,7 @@ const ManageToken = () => {
           centered
         >
           <ModalHeader
-            className="p-3 bg-soft-success"
+            className="p-3 bg-soft-success text-dark"
             toggle={() => setShowModel(false)}
           >
             Token Details

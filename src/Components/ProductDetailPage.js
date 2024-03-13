@@ -8,7 +8,6 @@ import SmartContent from './SmartContent';
 const ProductDetailPage = () => {
   // Access the productId from the URL parameters
   const { productId } = useParams();
-console.log(productId, "productId");
   return (
     <div>
       {productId === "smart-contract" && <SmartContract />}

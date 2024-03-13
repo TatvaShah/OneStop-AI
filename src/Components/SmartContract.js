@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../Styles/SmartContract.css";
 import Select from "react-select";
-import { Input, Row, Col, Switch, Space, Radio } from "antd";
+import { Input, Row, Col,  } from "antd";
 import axios from "axios";
 
 const TokenTypeOptions = [
@@ -79,21 +79,21 @@ const SmartContract = () => {
         <h1 style={{ color: "rgb(158, 200, 185)" }}>Smart Contract Creation</h1>
         <p
           style={{ color: "rgb(158, 200, 185)", marginTop: 0 }}
-          class="description"
+          className="description"
         >
           The complete solution to create affordable and professional marketing
           content
         </p>
 
-        <div id="generator-main" class="smartContract top-10">
+        <div id="generator-main" className="smartContract top-10">
           <div
             id="generator-prompt"
-            class="prompt but"
+            className="prompt but"
             style={{ marginBottom: 20, flexDirection: "column" }}
           >
             <p
               style={{ color: "rgb(158, 200, 185)", marginTop: 0 }}
-              class="description"
+              className="description"
             >
               Token Type and Network
             </p>
@@ -220,10 +220,10 @@ const SmartContract = () => {
               flex: "20%",
             }}
           >
-            <div id="generator-main" class="smartContract top-10">
+            <div id="generator-main" className="smartContract top-10">
               <div
                 id="generator-prompt"
-                class="prompt but"
+                className="prompt but"
                 style={{
                   marginBottom: 20,
                   flexDirection: "column",
@@ -237,7 +237,7 @@ const SmartContract = () => {
                     marginTop: 0,
                     fontSize: 16,
                   }}
-                  class=""
+                  className=""
                 >
                   Token details required fields
                 </p>
@@ -332,10 +332,10 @@ const SmartContract = () => {
                 </div>
               </div>
             </div>
-            <div id="generator-main" class="smartContract top-10">
+            <div id="generator-main" className="smartContract top-10">
               <div
                 id="generator-prompt"
-                class="prompt but"
+                className="prompt but"
                 style={{
                   marginBottom: 20,
                   flexDirection: "column",
@@ -349,7 +349,7 @@ const SmartContract = () => {
                     marginTop: 0,
                     fontSize: 16,
                   }}
-                  class=""
+                  className=""
                 >
                   Token supply required fields{" "}
                 </p>
@@ -447,10 +447,10 @@ const SmartContract = () => {
                       <span>Submit</span>
                     </button>
             </div>
-            {/* <div id="generator-main" class="top-10">
+            {/* <div id="generator-main" className="top-10">
               <div
                 id="generator-prompt"
-                class="prompt but"
+                className="prompt but"
                 style={{
                   marginBottom: 20,
                   flexDirection: "column",
@@ -462,7 +462,7 @@ const SmartContract = () => {
                     marginTop: 0,
                     fontSize: 16,
                   }}
-                  class=""
+                  className=""
                 >
                   Token features{" "}
                 </p>
@@ -735,7 +735,7 @@ const SmartContract = () => {
                   </div>
                 </div>
 
-                <button class="next-button">Next →</button>
+                <button className="next-button">Next →</button>
               </div>
             </div> */}
           </Col>

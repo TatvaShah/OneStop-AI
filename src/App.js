@@ -15,6 +15,9 @@ import SignUp from "./Authentication/SignUp";
 import OsiToken from "./Components/OsiToken";
 import ManageToken from "./Components/ManageToken";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { MyContextProvider } from "./hooks/MyContextProvider";
+
+
 const App = () => {
   return (
     <ToastProvider
@@ -23,24 +26,29 @@ const App = () => {
       // components={{ Toast: Snack }}
       placement="bottom-center"
     >
-      <Router>
-        <ScrollToTop />
-        <Header />
-        <div className="main-view">
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/product" element={<ProductsPage />} />
-            <Route path="/product/:productId" element={<ProductDetailPage />} />
-            <Route path="/connect" element={<ConnectWithUsPage />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<SignUp />} />
-            <Route path="/ositoken" element={<OsiToken />} />
-            <Route path="/manageToken" element={<ManageToken />} />
-          </Routes>
-        </div>
-        <Footer />
-      </Router>
+      <MyContextProvider>
+        <Router>
+          <ScrollToTop />
+          <Header />
+          <div className="main-view">
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/product" element={<ProductsPage />} />
+              <Route
+                path="/product/:productId"
+                element={<ProductDetailPage />}
+              />
+              <Route path="/connect" element={<ConnectWithUsPage />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<SignUp />} />
+              <Route path="/ositoken" element={<OsiToken />} />
+              <Route path="/manageToken" element={<ManageToken />} />
+            </Routes>
+          </div>
+          <Footer />
+        </Router>
+      </MyContextProvider>
     </ToastProvider>
   );
 };

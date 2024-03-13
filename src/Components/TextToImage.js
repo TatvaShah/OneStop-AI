@@ -18,7 +18,6 @@ const TextToImage = () => {
 
   const handleGenerateBtn = (e) => {
     e.preventDefault();
-    console.log(promptText, "promptText");
 
     const OPENAI_API_KEY =
       "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"; //OpenAI API key

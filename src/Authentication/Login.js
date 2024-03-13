@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./LoginSignUp.css";
 import { Link, useNavigate } from "react-router-dom";
 import { loginUser } from "../libs/api";
 import { useToasts } from "react-toast-notifications";
 import useToken from "../hooks/useToken";
+import { MyContext } from "../hooks/MyContextProvider";
 const Login = () => {
-  const { setToken, token, setUserDetails } = useToken();
+  const {   setUserDetails } = useToken();
+const { token, updateToken } = useContext(MyContext);
+  
   const { addToast } = useToasts();
   const navigate = useNavigate();
   const [inputData, setInputData] = useState({
@@ -22,19 +25,8 @@ const Login = () => {
 
     const userData = await loginUser(inputData);
     if (userData.status) {
-      console.log("userData: ", userData);
-      const usertoken = {
-        success: true,
-        response: {
-          id: userData?.data?.userDetail?._id,
-          firstName: userData?.data?.userDetail?.name,
-
-          userName: userData?.data?.userDetail?.eamil,
-          email: userData?.data?.userDetail?.email,
-          token: userData?.data?.token,
-        },
-      };
-      setToken(usertoken);
+   
+      updateToken(userData?.data?.token);
       setUserDetails({
         id: userData?.data?.userDetail?._id,
         firstName: userData?.data?.userDetail?.name,
@@ -64,20 +56,20 @@ const Login = () => {
   }, [navigate, token]);
 
   return (
-    <div class={`login-container`}>
-      <div class="forms-container">
-        <div class="signin-signup">
+    <div className={`login-container`}>
+      <div className="forms-container">
+        <div className="signin-signup">
           <form
             onSubmit={(e) => {
               handleSubmit(e);
             }}
             style={{ marginBottom: 20 }}
             action="#"
-            class="sign-in-form"
+            className="sign-in-form"
           >
-            <h2 class="title">Sign in</h2>
-            <div class="input-field">
-              <i class="fas fa-user"></i>
+            <h2 className="title">Sign in</h2>
+            <div className="input-field">
+              <i className="fas fa-user"></i>
               <input
                 type="text"
                 name="email"
@@ -88,8 +80,8 @@ const Login = () => {
                 placeholder="Email"
               />
             </div>
-            <div class="input-field">
-              <i class="fas fa-lock"></i>
+            <div className="input-field">
+              <i className="fas fa-lock"></i>
               <input
                 type="password"
                 name="password"
@@ -104,7 +96,7 @@ const Login = () => {
               style={{ marginTop: 10, textAlign: "center" }}
               type="submit"
               value="Login"
-              class="btn solid"
+              className="btn btn-secondary "
             />
           </form>
           <Link to={"/signup"}>Or Sign UP</Link>
