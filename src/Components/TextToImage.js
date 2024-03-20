@@ -10,7 +10,7 @@ const TextToImage = () => {
   const [textBelowImage, setTextBelowImage] = useState(false);
   const [generatedImage, setGeneratedImage] = useState("");
   // eslint-disable-next-line
-  const [model, setModel] = useState("dall-e-2");
+  const [model, setModel] = useState("dall-e-3");
   // eslint-disable-next-line
   const [numberOfImages, setNumberOfImages] = useState(1);
   // eslint-disable-next-line
@@ -249,7 +249,7 @@ const TextToImage = () => {
           </div>
         ) : (
           <div id="generator-feed" className="top-30">
-            <div id="generator-feed-login" className="top-30">
+            {/* <div id="generator-feed-login" className="top-30">
               <div id="generator-feed-login-examples">
                 <img
                   loading="lazy"
@@ -368,7 +368,7 @@ const TextToImage = () => {
                   Sign up / Log in
                 </div>
               </div>
-            </div>
+            </div> */}
 
             <ul id="generator-feed-type" className="tab-list"></ul>
 
