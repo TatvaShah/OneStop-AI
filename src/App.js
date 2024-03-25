@@ -16,7 +16,7 @@ import OsiToken from "./Components/OsiToken";
 import ManageToken from "./Components/ManageToken";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { MyContextProvider } from "./hooks/MyContextProvider";
-
+import "./App.css";
 
 const App = () => {
   return (

@@ -9,6 +9,7 @@ const TextToImage = () => {
   const [industries, setIndustries] = useState("");
   const [textBelowImage, setTextBelowImage] = useState(false);
   const [generatedImage, setGeneratedImage] = useState("");
+  const [step, setStep] = useState("step1");
   // eslint-disable-next-line
   const [model, setModel] = useState("dall-e-3");
   // eslint-disable-next-line
@@ -88,168 +89,749 @@ const TextToImage = () => {
   };
   return (
     <div>
-      <div id="generator">
-        <h1 style={{ color: "rgb(158, 200, 185)" }}>Text To Image Generator</h1>
-        <p style={{ color: "rgb(158, 200, 185)" }} className="description">
-          Generate an image using Generative AI by describing what you want to
-          see, all images are published publicly by default.{" "}
-        </p>
-
-        <div id="generator-main" className="top-10">
+      <div>
+        <div className="d-flex justify-content-between align-items-center">
           <div
-            id="generator-prompt"
-            className="prompt but"
-            style={{ marginBottom: 20, gap: 20, padding: 10 }}
+            className={` custom-menu-col mx-5 ${
+              step === "step1" ? "active-step" : ""
+            }`}
           >
-            <div id="generator-prompt-image"></div>
-            <div id="generator-prompt-text" className="but">
-              <label>Project Name</label>
-              <Input
-                id=""
-                className="but"
-                type="text"
-                placeholder="Project Name"
-                rows="1"
-                value={projectName}
-                onChange={(e) => {
-                  setProjectName(e?.target?.value);
-                }}
-                style={{ marginTop: 5 }}
-              />
-            </div>
-            <div id="generator-prompt-text" className="but">
-              <label>Colour</label>
-              <Input
-                id=""
-                className="but"
-                type="text"
-                placeholder="Colour"
-                rows="1"
-                value={colorCode}
-                onChange={(e) => {
-                  setColorCode(e?.target?.value);
-                }}
-                style={{ marginTop: 5 }}
-              />
-            </div>
-            <div id="generator-prompt-text" className="but">
-              <label>Industries</label>
-              <Input
-                id=""
-                className="but"
-                type="text"
-                placeholder="Industries"
-                rows="1"
-                value={industries}
-                onChange={(e) => {
-                  setIndustries(e?.target?.value);
-                }}
-                style={{ marginTop: 5 }}
-              />
-            </div>
+            <button onClick={() => setStep("step1")}>Logo</button>
+          </div>
+          <div
+            className={` custom-menu-col  ${
+              step === "step2" ? "active-step" : ""
+            }`}
+          >
+            <button onClick={() => setStep("step2")}>Banner</button>
+          </div>
+          <div
+            className={` custom-menu-col mx-5  ${
+              step === "step3" ? "active-step" : ""
+            }`}
+          >
+            <button onClick={() => setStep("step3")}>Text Image </button>
+          </div>
+        </div>
+      </div>
+
+      {step === "step1" && (
+        <div id="generator" className="mt-2">
+          <h1 style={{ color: "rgb(158, 200, 185)" }}>Logo Generator</h1>
+
+          <div id="generator-main" className="top-10">
             <div
-              id="generator-prompt-text"
+              id="generator-prompt"
+              className="prompt but"
+              style={{ marginBottom: 20, gap: 20, padding: 10 }}
+            >
+              <div id="generator-prompt-image"></div>
+              <div id="generator-prompt-text" className="but">
+                <label>Project Name</label>
+                <Input
+                  id=""
+                  className="but"
+                  type="text"
+                  placeholder="Project Name"
+                  rows="1"
+                  value={projectName}
+                  onChange={(e) => {
+                    setProjectName(e?.target?.value);
+                  }}
+                  style={{ marginTop: 5 }}
+                />
+              </div>
+              <div id="generator-prompt-text" className="but">
+                <label>Colour</label>
+                <Input
+                  id=""
+                  className="but"
+                  type="text"
+                  placeholder="Colour"
+                  rows="1"
+                  value={colorCode}
+                  onChange={(e) => {
+                    setColorCode(e?.target?.value);
+                  }}
+                  style={{ marginTop: 5 }}
+                />
+              </div>
+            </div>
+          </div>
+
+          <div id="generator-main" className="top-10">
+            <div
+              id="generator-prompt"
+              className="prompt but"
+              style={{ marginBottom: 20 }}
+            >
+              <div id="generator-prompt-image"></div>
+              <div id="generator-prompt-text" className="but">
+                <label>Description prompt</label>
+                <textarea
+                  id="generator-positive"
+                  className="but"
+                  type="text"
+                  placeholder="What do you want to see?"
+                  rows="1"
+                  value={promptText}
+                  onChange={(e) => {
+                    setPromptText(e?.target?.value);
+                  }}
+                  style={{ height: "30px", border: "none", outline: "none" }}
+                ></textarea>
+              </div>
+            </div>
+
+            <h3 style={{ color: "rgb(158, 200, 185)" }}>Select Industry</h3>
+
+            <section>
+              <div class="main-container">
+                <ul class="grid-wrapper">
+                  <li style={{ cursor: "pointer" }}>
+                    {" "}
+                    <i class="iconfont icon-travel tw-19wxcu7 tw-113xw0w tw-t83gnr tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-kdr9j5"></i>
+                    <span class="tw-1oqjqw3 tw-16x996c tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-1586f5y">
+                      Travel
+                    </span>
+                  </li>
+                  <li style={{ cursor: "pointer" }}>
+                    <i class="iconfont icon-bike tw-19wxcu7 tw-113xw0w tw-t83gnr tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-kdr9j5"></i>
+                    <span class="tw-1oqjqw3 tw-16x996c tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-1586f5y">
+                      Sports Fitness
+                    </span>
+                  </li>
+                  <li style={{ cursor: "pointer" }}>
+                    {" "}
+                    <i class="iconfont icon-shopping-cart-black-shape tw-19wxcu7 tw-113xw0w tw-t83gnr tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-kdr9j5"></i>
+                    <span class="tw-1oqjqw3 tw-16x996c tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-1586f5y">
+                      Retail
+                    </span>
+                  </li>
+                  <li style={{ cursor: "pointer" }}>
+                    {" "}
+                    <i class="iconfont icon-church tw-19wxcu7 tw-113xw0w tw-t83gnr tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-kdr9j5"></i>
+                    <span class="tw-1oqjqw3 tw-16x996c tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-1586f5y">
+                      Religious
+                    </span>
+                  </li>
+                  <li style={{ cursor: "pointer" }}>
+                    {" "}
+                    <i class="iconfont icon-noun_building_ tw-19wxcu7 tw-113xw0w tw-t83gnr tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-kdr9j5"></i>
+                    <span class="tw-1oqjqw3 tw-16x996c tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-1586f5y">
+                      Real Estate
+                    </span>
+                  </li>
+                  <li style={{ cursor: "pointer" }}>
+                    {" "}
+                    <i class="iconfont icon-mace tw-19wxcu7 tw-113xw0w tw-t83gnr tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-kdr9j5"></i>
+                    <span class="tw-1oqjqw3 tw-16x996c tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-1586f5y">
+                      Legal
+                    </span>
+                  </li>
+                  <li style={{ cursor: "pointer" }}>
+                    {" "}
+                    <i class="iconfont icon-it tw-19wxcu7 tw-113xw0w tw-t83gnr tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-kdr9j5"></i>
+                    <span class="tw-1oqjqw3 tw-16x996c tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-1586f5y">
+                      Internet
+                    </span>
+                  </li>
+                  <li style={{ cursor: "pointer" }}>
+                    {" "}
+                    <i class="iconfont icon-noun_Robot_ tw-19wxcu7 tw-113xw0w tw-t83gnr tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-kdr9j5"></i>
+                    <span class="tw-1oqjqw3 tw-16x996c tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-1586f5y">
+                      Technology
+                    </span>
+                  </li>
+                  <li style={{ cursor: "pointer" }}>
+                    {" "}
+                    <i class="iconfont icon-sofa tw-19wxcu7 tw-113xw0w tw-t83gnr tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-kdr9j5"></i>
+                    <span class="tw-1oqjqw3 tw-16x996c tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-1586f5y">
+                      Home Family
+                    </span>
+                  </li>
+                  <li style={{ cursor: "pointer" }}>
+                    {" "}
+                    <i class="iconfont icon-qiqiu tw-19wxcu7 tw-113xw0w tw-t83gnr tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-kdr9j5"></i>
+                    <span class="tw-1oqjqw3 tw-16x996c tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-1586f5y">
+                      Events
+                    </span>
+                  </li>
+                  <li style={{ cursor: "pointer" }}>
+                    <i class="iconfont icon-yiliao tw-19wxcu7 tw-113xw0w tw-t83gnr tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-kdr9j5"></i>
+                    <span class="tw-1oqjqw3 tw-16x996c tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-1586f5y">
+                      Medical Dental
+                    </span>
+                  </li>
+                  <li style={{ cursor: "pointer" }}>
+                    {" "}
+                    <i class="iconfont icon-icon_food tw-19wxcu7 tw-113xw0w tw-t83gnr tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-kdr9j5"></i>
+                    <span class="tw-1oqjqw3 tw-16x996c tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-1586f5y">
+                      Restaurant
+                    </span>
+                  </li>
+                  <li style={{ cursor: "pointer" }}>
+                    {" "}
+                    <i class="iconfont icon-caiwu tw-19wxcu7 tw-113xw0w tw-t83gnr tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-kdr9j5"></i>
+                    <span class="tw-1oqjqw3 tw-16x996c tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-1586f5y">
+                      Finance
+                    </span>{" "}
+                  </li>
+
+                  <li style={{ cursor: "pointer" }}>
+                    {" "}
+                    <i class="iconfont icon-game tw-19wxcu7 tw-113xw0w tw-t83gnr tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-kdr9j5"></i>
+                    <span class="tw-1oqjqw3 tw-16x996c tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-1586f5y">
+                      Entertainment
+                    </span>{" "}
+                  </li>
+                  <li style={{ cursor: "pointer" }}>
+                    {" "}
+                    <i class="iconfont icon-zhuangxiu tw-19wxcu7 tw-113xw0w tw-t83gnr tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-kdr9j5"></i>
+                    <span class="tw-1oqjqw3 tw-16x996c tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-1586f5y">
+                      Construction
+                    </span>{" "}
+                  </li>
+                  <li style={{ cursor: "pointer" }}>
+                    {" "}
+                    <i class="iconfont icon-open-book1 tw-19wxcu7 tw-113xw0w tw-t83gnr tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-om7hqv"></i>
+                    <span class="tw-1oqjqw3 tw-16x996c tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-om7hqv">
+                      Education
+                    </span>{" "}
+                  </li>
+                  <li style={{ cursor: "pointer" }}>
+                    {" "}
+                    <i class="iconfont icon-meirong tw-19wxcu7 tw-113xw0w tw-t83gnr tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-kdr9j5"></i>
+                    <span class="tw-1oqjqw3 tw-16x996c tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-1586f5y">
+                      Beauty Spa
+                    </span>{" "}
+                  </li>
+                  <li style={{ cursor: "pointer" }}>
+                    {" "}
+                    <i class="iconfont icon-car tw-19wxcu7 tw-113xw0w tw-t83gnr tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-kdr9j5"></i>
+                    <span class="tw-1oqjqw3 tw-16x996c tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-1586f5y">
+                      Automotive
+                    </span>{" "}
+                  </li>
+                  <li style={{ cursor: "pointer" }}>
+                    {" "}
+                    <i class="iconfont icon-chongwu tw-19wxcu7 tw-113xw0w tw-t83gnr tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-kdr9j5"></i>
+                    <span class="tw-1oqjqw3 tw-16x996c tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-1586f5y">
+                      Animals Pets
+                    </span>{" "}
+                  </li>
+                  <li style={{ cursor: "pointer" }}>
+                    {" "}
+                    <i class="iconfont icon-qita tw-19wxcu7 tw-113xw0w tw-t83gnr tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-kdr9j5"></i>
+                    <span class="tw-1oqjqw3 tw-16x996c tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-1586f5y">
+                      Others
+                    </span>{" "}
+                  </li>
+                </ul>
+              </div>
+            </section>
+            <div
               style={{
                 display: "flex",
-                flexDirection: "row",
-                alignItems: "center",
+                justifyContent: "flex-end",
+                marginBottom: 20,
               }}
-              className="but"
             >
-              <label style={{ width: "50%" }}>Text Below Image</label>
-              <Input
-                id=""
-                className=""
-                type="checkbox"
-                checked={textBelowImage}
-                onChange={(e) => {
-                  setTextBelowImage(e?.target?.checked);
-                }}
-                style={{
-                  marginTop: 5,
-                  height: "max-content",
-                  width: "max-content",
-                  borderStyle: "hidden",
-                }}
-              />
-            </div>
-          </div>
-        </div>
-        <div id="generator-main" className="top-10">
-          <div
-            id="generator-prompt"
-            className="prompt but"
-            style={{ marginBottom: 20 }}
-          >
-            <div id="generator-prompt-image"></div>
-            <div id="generator-prompt-text" className="but">
-              <label>Description prompt</label>
-              <textarea
-                id="generator-positive"
-                className="but"
-                type="text"
-                placeholder="What do you want to see?"
-                rows="1"
-                value={promptText}
-                onChange={(e) => {
-                  setPromptText(e?.target?.value);
-                }}
-                style={{ height: "30px", border: "none", outline: "none" }}
-              ></textarea>
-            </div>
-          </div>
-
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "flex-end",
-              marginBottom: 20,
-            }}
-          >
-            <button
-              onClick={(e) => {
-                handleGenerateBtn(e);
-              }}
-              className="text-to-image-btn"
-            >
-              <svg
-                height="24"
-                width="24"
-                fill="#FFFFFF"
-                viewBox="0 0 24 24"
-                data-name="Layer 1"
-                id="Layer_1"
-                className="sparkle"
-              >
-                <path d="M10,21.236,6.755,14.745.264,11.5,6.755,8.255,10,1.764l3.245,6.491L19.736,11.5l-6.491,3.245ZM18,21l1.5,3L21,21l3-1.5L21,18l-1.5-3L18,18l-3,1.5ZM19.333,4.667,20.5,7l1.167-2.333L24,3.5,21.667,2.333,20.5,0,19.333,2.333,17,3.5Z"></path>
-              </svg>
-
-              <span className="text">Generate</span>
-            </button>
-          </div>
-        </div>
-
-        {generatedImage ? (
-          <div>
-            <img src={generatedImage} alt="generate-img" />
-            <div>
               <button
-                type="button"
-                onClick={() => {
-                  handleDownload(generatedImage);
+                onClick={(e) => {
+                  handleGenerateBtn(e);
                 }}
-                className="button-dn"
+                className="text-to-image-btn"
               >
-                <span className="button_lg">
-                  <span className="button_sl"></span>
-                  <span className="button_text">Download Now</span>
-                </span>
+                <svg
+                  height="24"
+                  width="24"
+                  fill="#FFFFFF"
+                  viewBox="0 0 24 24"
+                  data-name="Layer 1"
+                  id="Layer_1"
+                  className="sparkle"
+                >
+                  <path d="M10,21.236,6.755,14.745.264,11.5,6.755,8.255,10,1.764l3.245,6.491L19.736,11.5l-6.491,3.245ZM18,21l1.5,3L21,21l3-1.5L21,18l-1.5-3L18,18l-3,1.5ZM19.333,4.667,20.5,7l1.167-2.333L24,3.5,21.667,2.333,20.5,0,19.333,2.333,17,3.5Z"></path>
+                </svg>
+
+                <span className="text">Generate</span>
               </button>
             </div>
           </div>
-        ) : (
-          <div id="generator-feed" className="top-30">
-            {/* <div id="generator-feed-login" className="top-30">
+          {generatedImage ? (
+            <div>
+              <img src={generatedImage} alt="generate-img" />
+              <div>
+                <button
+                  type="button"
+                  onClick={() => {
+                    handleDownload(generatedImage);
+                  }}
+                  className="button-dn"
+                >
+                  <span className="button_lg">
+                    <span className="button_sl"></span>
+                    <span className="button_text">Download Now</span>
+                  </span>
+                </button>
+              </div>
+            </div>
+          ) : (
+            <div id="generator-feed" className="top-30">
+              <ul id="generator-feed-type" className="tab-list"></ul>
+
+              <div
+                id="generator-feed-mansory"
+                className="top-30 mansorary medium"
+                style={{ alignItems: "stretch" }}
+              ></div>
+              <div id="can-you-see-me"></div>
+            </div>
+          )}
+        </div>
+      )}
+      {step === "step2" && (
+        <div id="generator" className="mt-2">
+          <h1 style={{ color: "rgb(158, 200, 185)" }}>Banner Generator</h1>
+
+          <div id="generator-main" className="top-10">
+            <div
+              id="generator-prompt"
+              className="prompt but"
+              style={{ marginBottom: 20, gap: 20, padding: 10 }}
+            >
+              <div id="generator-prompt-image"></div>
+              <div id="generator-prompt-text" className="but">
+                <label>Project Name</label>
+                <Input
+                  id=""
+                  className="but"
+                  type="text"
+                  placeholder="Project Name"
+                  rows="1"
+                  value={projectName}
+                  onChange={(e) => {
+                    setProjectName(e?.target?.value);
+                  }}
+                  style={{ marginTop: 5 }}
+                />
+              </div>
+              <div id="generator-prompt-text" className="but">
+                <label>Colour</label>
+                <Input
+                  id=""
+                  className="but"
+                  type="text"
+                  placeholder="Colour"
+                  rows="1"
+                  value={colorCode}
+                  onChange={(e) => {
+                    setColorCode(e?.target?.value);
+                  }}
+                  style={{ marginTop: 5 }}
+                />
+              </div>
+            </div>
+          </div>
+
+          <div id="generator-main" className="top-10">
+            <div
+              id="generator-prompt"
+              className="prompt but"
+              style={{ marginBottom: 20 }}
+            >
+              <div id="generator-prompt-image"></div>
+              <div id="generator-prompt-text" className="but">
+                <label>Description prompt</label>
+                <textarea
+                  id="generator-positive"
+                  className="but"
+                  type="text"
+                  placeholder="What do you want to see?"
+                  rows="1"
+                  value={promptText}
+                  onChange={(e) => {
+                    setPromptText(e?.target?.value);
+                  }}
+                  style={{ height: "30px", border: "none", outline: "none" }}
+                ></textarea>
+              </div>
+            </div>
+
+            <h3 style={{ color: "rgb(158, 200, 185)" }}>Select Industry</h3>
+
+            <section>
+              <div class="main-container">
+                <ul class="grid-wrapper">
+                  <li style={{ cursor: "pointer" }}>
+                    {" "}
+                    <i class="iconfont icon-travel tw-19wxcu7 tw-113xw0w tw-t83gnr tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-kdr9j5"></i>
+                    <span class="tw-1oqjqw3 tw-16x996c tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-1586f5y">
+                      Travel
+                    </span>
+                  </li>
+                  <li style={{ cursor: "pointer" }}>
+                    <i class="iconfont icon-bike tw-19wxcu7 tw-113xw0w tw-t83gnr tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-kdr9j5"></i>
+                    <span class="tw-1oqjqw3 tw-16x996c tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-1586f5y">
+                      Sports Fitness
+                    </span>
+                  </li>
+                  <li style={{ cursor: "pointer" }}>
+                    {" "}
+                    <i class="iconfont icon-shopping-cart-black-shape tw-19wxcu7 tw-113xw0w tw-t83gnr tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-kdr9j5"></i>
+                    <span class="tw-1oqjqw3 tw-16x996c tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-1586f5y">
+                      Retail
+                    </span>
+                  </li>
+                  <li style={{ cursor: "pointer" }}>
+                    {" "}
+                    <i class="iconfont icon-church tw-19wxcu7 tw-113xw0w tw-t83gnr tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-kdr9j5"></i>
+                    <span class="tw-1oqjqw3 tw-16x996c tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-1586f5y">
+                      Religious
+                    </span>
+                  </li>
+                  <li style={{ cursor: "pointer" }}>
+                    {" "}
+                    <i class="iconfont icon-noun_building_ tw-19wxcu7 tw-113xw0w tw-t83gnr tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-kdr9j5"></i>
+                    <span class="tw-1oqjqw3 tw-16x996c tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-1586f5y">
+                      Real Estate
+                    </span>
+                  </li>
+                  <li style={{ cursor: "pointer" }}>
+                    {" "}
+                    <i class="iconfont icon-mace tw-19wxcu7 tw-113xw0w tw-t83gnr tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-kdr9j5"></i>
+                    <span class="tw-1oqjqw3 tw-16x996c tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-1586f5y">
+                      Legal
+                    </span>
+                  </li>
+                  <li style={{ cursor: "pointer" }}>
+                    {" "}
+                    <i class="iconfont icon-it tw-19wxcu7 tw-113xw0w tw-t83gnr tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-kdr9j5"></i>
+                    <span class="tw-1oqjqw3 tw-16x996c tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-1586f5y">
+                      Internet
+                    </span>
+                  </li>
+                  <li style={{ cursor: "pointer" }}>
+                    {" "}
+                    <i class="iconfont icon-noun_Robot_ tw-19wxcu7 tw-113xw0w tw-t83gnr tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-kdr9j5"></i>
+                    <span class="tw-1oqjqw3 tw-16x996c tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-1586f5y">
+                      Technology
+                    </span>
+                  </li>
+                  <li style={{ cursor: "pointer" }}>
+                    {" "}
+                    <i class="iconfont icon-sofa tw-19wxcu7 tw-113xw0w tw-t83gnr tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-kdr9j5"></i>
+                    <span class="tw-1oqjqw3 tw-16x996c tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-1586f5y">
+                      Home Family
+                    </span>
+                  </li>
+                  <li style={{ cursor: "pointer" }}>
+                    {" "}
+                    <i class="iconfont icon-qiqiu tw-19wxcu7 tw-113xw0w tw-t83gnr tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-kdr9j5"></i>
+                    <span class="tw-1oqjqw3 tw-16x996c tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-1586f5y">
+                      Events
+                    </span>
+                  </li>
+                  <li style={{ cursor: "pointer" }}>
+                    <i class="iconfont icon-yiliao tw-19wxcu7 tw-113xw0w tw-t83gnr tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-kdr9j5"></i>
+                    <span class="tw-1oqjqw3 tw-16x996c tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-1586f5y">
+                      Medical Dental
+                    </span>
+                  </li>
+                  <li style={{ cursor: "pointer" }}>
+                    {" "}
+                    <i class="iconfont icon-icon_food tw-19wxcu7 tw-113xw0w tw-t83gnr tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-kdr9j5"></i>
+                    <span class="tw-1oqjqw3 tw-16x996c tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-1586f5y">
+                      Restaurant
+                    </span>
+                  </li>
+                  <li style={{ cursor: "pointer" }}>
+                    {" "}
+                    <i class="iconfont icon-caiwu tw-19wxcu7 tw-113xw0w tw-t83gnr tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-kdr9j5"></i>
+                    <span class="tw-1oqjqw3 tw-16x996c tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-1586f5y">
+                      Finance
+                    </span>{" "}
+                  </li>
+
+                  <li style={{ cursor: "pointer" }}>
+                    {" "}
+                    <i class="iconfont icon-game tw-19wxcu7 tw-113xw0w tw-t83gnr tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-kdr9j5"></i>
+                    <span class="tw-1oqjqw3 tw-16x996c tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-1586f5y">
+                      Entertainment
+                    </span>{" "}
+                  </li>
+                  <li style={{ cursor: "pointer" }}>
+                    {" "}
+                    <i class="iconfont icon-zhuangxiu tw-19wxcu7 tw-113xw0w tw-t83gnr tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-kdr9j5"></i>
+                    <span class="tw-1oqjqw3 tw-16x996c tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-1586f5y">
+                      Construction
+                    </span>{" "}
+                  </li>
+                  <li style={{ cursor: "pointer" }}>
+                    {" "}
+                    <i class="iconfont icon-open-book1 tw-19wxcu7 tw-113xw0w tw-t83gnr tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-om7hqv"></i>
+                    <span class="tw-1oqjqw3 tw-16x996c tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-om7hqv">
+                      Education
+                    </span>{" "}
+                  </li>
+                  <li style={{ cursor: "pointer" }}>
+                    {" "}
+                    <i class="iconfont icon-meirong tw-19wxcu7 tw-113xw0w tw-t83gnr tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-kdr9j5"></i>
+                    <span class="tw-1oqjqw3 tw-16x996c tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-1586f5y">
+                      Beauty Spa
+                    </span>{" "}
+                  </li>
+                  <li style={{ cursor: "pointer" }}>
+                    {" "}
+                    <i class="iconfont icon-car tw-19wxcu7 tw-113xw0w tw-t83gnr tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-kdr9j5"></i>
+                    <span class="tw-1oqjqw3 tw-16x996c tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-1586f5y">
+                      Automotive
+                    </span>{" "}
+                  </li>
+                  <li style={{ cursor: "pointer" }}>
+                    {" "}
+                    <i class="iconfont icon-chongwu tw-19wxcu7 tw-113xw0w tw-t83gnr tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-kdr9j5"></i>
+                    <span class="tw-1oqjqw3 tw-16x996c tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-1586f5y">
+                      Animals Pets
+                    </span>{" "}
+                  </li>
+                  <li style={{ cursor: "pointer" }}>
+                    {" "}
+                    <i class="iconfont icon-qita tw-19wxcu7 tw-113xw0w tw-t83gnr tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-kdr9j5"></i>
+                    <span class="tw-1oqjqw3 tw-16x996c tw-z1n6pf tw-1w94yo8 tw-16wrqmo tw-98tp3t tw-1586f5y">
+                      Others
+                    </span>{" "}
+                  </li>
+                </ul>
+              </div>
+            </section>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "flex-end",
+                marginBottom: 20,
+              }}
+            >
+              <button
+                onClick={(e) => {
+                  handleGenerateBtn(e);
+                }}
+                className="text-to-image-btn"
+              >
+                <svg
+                  height="24"
+                  width="24"
+                  fill="#FFFFFF"
+                  viewBox="0 0 24 24"
+                  data-name="Layer 1"
+                  id="Layer_1"
+                  className="sparkle"
+                >
+                  <path d="M10,21.236,6.755,14.745.264,11.5,6.755,8.255,10,1.764l3.245,6.491L19.736,11.5l-6.491,3.245ZM18,21l1.5,3L21,21l3-1.5L21,18l-1.5-3L18,18l-3,1.5ZM19.333,4.667,20.5,7l1.167-2.333L24,3.5,21.667,2.333,20.5,0,19.333,2.333,17,3.5Z"></path>
+                </svg>
+
+                <span className="text">Generate</span>
+              </button>
+            </div>
+          </div>
+          {generatedImage ? (
+            <div>
+              <img src={generatedImage} alt="generate-img" />
+              <div>
+                <button
+                  type="button"
+                  onClick={() => {
+                    handleDownload(generatedImage);
+                  }}
+                  className="button-dn"
+                >
+                  <span className="button_lg">
+                    <span className="button_sl"></span>
+                    <span className="button_text">Download Now</span>
+                  </span>
+                </button>
+              </div>
+            </div>
+          ) : (
+            <div id="generator-feed" className="top-30">
+              <ul id="generator-feed-type" className="tab-list"></ul>
+
+              <div
+                id="generator-feed-mansory"
+                className="top-30 mansorary medium"
+                style={{ alignItems: "stretch" }}
+              ></div>
+              <div id="can-you-see-me"></div>
+            </div>
+          )}
+        </div>
+      )}
+      {step === "step3" && (
+        <div id="generator" className="mt-2">
+          <h1 style={{ color: "rgb(158, 200, 185)" }}>
+            Text To Image Generator
+          </h1>
+          <p style={{ color: "rgb(158, 200, 185)" }} className="description">
+            Generate an image using Generative AI by describing what you want to
+            see, all images are published publicly by default.{" "}
+          </p>
+
+          <div id="generator-main" className="top-10">
+            <div
+              id="generator-prompt"
+              className="prompt but"
+              style={{ marginBottom: 20, gap: 20, padding: 10 }}
+            >
+              <div id="generator-prompt-image"></div>
+              <div id="generator-prompt-text" className="but">
+                <label>Project Name</label>
+                <Input
+                  id=""
+                  className="but"
+                  type="text"
+                  placeholder="Project Name"
+                  rows="1"
+                  value={projectName}
+                  onChange={(e) => {
+                    setProjectName(e?.target?.value);
+                  }}
+                  style={{ marginTop: 5 }}
+                />
+              </div>
+              <div id="generator-prompt-text" className="but">
+                <label>Colour</label>
+                <Input
+                  id=""
+                  className="but"
+                  type="text"
+                  placeholder="Colour"
+                  rows="1"
+                  value={colorCode}
+                  onChange={(e) => {
+                    setColorCode(e?.target?.value);
+                  }}
+                  style={{ marginTop: 5 }}
+                />
+              </div>
+              <div id="generator-prompt-text" className="but">
+                <label>Industries</label>
+                <Input
+                  id=""
+                  className="but"
+                  type="text"
+                  placeholder="Industries"
+                  rows="1"
+                  value={industries}
+                  onChange={(e) => {
+                    setIndustries(e?.target?.value);
+                  }}
+                  style={{ marginTop: 5 }}
+                />
+              </div>
+              <div
+                id="generator-prompt-text"
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  alignItems: "center",
+                }}
+                className="but"
+              >
+                <label style={{ width: "50%" }}>Text Below Image</label>
+                <Input
+                  id=""
+                  className=""
+                  type="checkbox"
+                  checked={textBelowImage}
+                  onChange={(e) => {
+                    setTextBelowImage(e?.target?.checked);
+                  }}
+                  style={{
+                    marginTop: 5,
+                    height: "max-content",
+                    width: "max-content",
+                    borderStyle: "hidden",
+                  }}
+                />
+              </div>
+            </div>
+          </div>
+          <div id="generator-main" className="top-10">
+            <div
+              id="generator-prompt"
+              className="prompt but"
+              style={{ marginBottom: 20 }}
+            >
+              <div id="generator-prompt-image"></div>
+              <div id="generator-prompt-text" className="but">
+                <label>Description prompt</label>
+                <textarea
+                  id="generator-positive"
+                  className="but"
+                  type="text"
+                  placeholder="What do you want to see?"
+                  rows="1"
+                  value={promptText}
+                  onChange={(e) => {
+                    setPromptText(e?.target?.value);
+                  }}
+                  style={{ height: "30px", border: "none", outline: "none" }}
+                ></textarea>
+              </div>
+            </div>
+
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "flex-end",
+                marginBottom: 20,
+              }}
+            >
+              <button
+                onClick={(e) => {
+                  handleGenerateBtn(e);
+                }}
+                className="text-to-image-btn"
+              >
+                <svg
+                  height="24"
+                  width="24"
+                  fill="#FFFFFF"
+                  viewBox="0 0 24 24"
+                  data-name="Layer 1"
+                  id="Layer_1"
+                  className="sparkle"
+                >
+                  <path d="M10,21.236,6.755,14.745.264,11.5,6.755,8.255,10,1.764l3.245,6.491L19.736,11.5l-6.491,3.245ZM18,21l1.5,3L21,21l3-1.5L21,18l-1.5-3L18,18l-3,1.5ZM19.333,4.667,20.5,7l1.167-2.333L24,3.5,21.667,2.333,20.5,0,19.333,2.333,17,3.5Z"></path>
+                </svg>
+
+                <span className="text">Generate</span>
+              </button>
+            </div>
+          </div>
+
+          {generatedImage ? (
+            <div>
+              <img src={generatedImage} alt="generate-img" />
+              <div>
+                <button
+                  type="button"
+                  onClick={() => {
+                    handleDownload(generatedImage);
+                  }}
+                  className="button-dn"
+                >
+                  <span className="button_lg">
+                    <span className="button_sl"></span>
+                    <span className="button_text">Download Now</span>
+                  </span>
+                </button>
+              </div>
+            </div>
+          ) : (
+            <div id="generator-feed" className="top-30">
+              {/* <div id="generator-feed-login" className="top-30">
               <div id="generator-feed-login-examples">
                 <img
                   loading="lazy"
@@ -370,17 +952,18 @@ const TextToImage = () => {
               </div>
             </div> */}
 
-            <ul id="generator-feed-type" className="tab-list"></ul>
+              <ul id="generator-feed-type" className="tab-list"></ul>
 
-            <div
-              id="generator-feed-mansory"
-              className="top-30 mansorary medium"
-              style={{ alignItems: "stretch" }}
-            ></div>
-            <div id="can-you-see-me"></div>
-          </div>
-        )}
-      </div>
+              <div
+                id="generator-feed-mansory"
+                className="top-30 mansorary medium"
+                style={{ alignItems: "stretch" }}
+              ></div>
+              <div id="can-you-see-me"></div>
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 };
