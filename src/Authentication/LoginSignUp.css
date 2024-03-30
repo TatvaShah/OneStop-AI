@@ -1,6 +1,109 @@
-.login-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
+/* * * ========================================== * CUSTOM UTIL CLASSES * ========================================== * */
+.login,
+.image {
+  min-height: 100vh;
+}
+.bg-image {
+  background-image: url("../Images/Login-Image.png");
+  background-size: cover;
+  background-position: center center;
+}
+
+.main-login-div {
+  height: calc(100vh - 134px);
+}
+.login-logo {
+  height: 100px;
+}
+
+.login-text {
+  font-family: "Aboro";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 48px;
+  color: #ffffff;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+.login-text-sm {
+  font-family: "Alterwave";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  color: #ffffff;
+}
+
+.login-text-sm > a {
+  font-family: "Alterwave";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+
+  color: #ed4292;
+}
+.login-form {
+  width: 100%;
+}
+.login-form > p {
+  /* Email/Username */
+
+  font-family: "Alterwave";
+  font-style: normal;
+  font-weight: 400;
+  /* font-size: 20px; */
+  line-height: 19px;
+
+  color: #828282;
+}
+
+.login-form > input {
+  background: #26252a;
+  box-shadow: inset 0px 4px 18px rgba(0, 0, 0, 0.25);
+  border-radius: 11px;
+  height: 44px;
+  border: none;
+  width: 100%;
+}
+
+.login-button {
+  margin-top: 20px;
+  border: none;
+  width: 100%;
+  height: 48px;
+  background: linear-gradient(
+      90deg,
+      #f54097 0%,
+      #c71ccf 19.59%,
+      #6746ea 46.17%,
+      #3f26d9 71.35%,
+      #00afcb 93.27%
+    ),
+    linear-gradient(87.21deg, #f54097 0%, #3f26d9 100%);
+  border-radius: 12px;
+
+  font-family: "Alterwave";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 19px;
+  line-height: 22px;
+  /* identical to box height, or 116% */
+  text-transform: capitalize;
+
+  /* Surface main */
+  color: #ffffff;
+}
+
+.login-button + a {
+  /* forgot your password? */
+
+  font-family: "Alterwave";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+
+  color: #828282;
 }
