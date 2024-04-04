@@ -1,110 +1,102 @@
-// Header.js
-import React, { useContext } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
-import "../Styles/Header.css"; // Import the CSS file
-import { MyContext } from "../hooks/MyContextProvider";
-import useToken from "../hooks/useToken";
-
+import React from "react";
+import "../Styles/Header.css";
+import logo from "../Images/OSI-TOKEN.png";
+import logo2 from "../Images/OSI-WHITE-LOGO.png";
+import { Link } from "react-router-dom";
 const Header = () => {
-  const {  userDetails } = useToken();
-  const navigate = useNavigate()
-  const { token, updateToken } = useContext(MyContext);
-  const [showNavbar, setShowNavbar] = React.useState(false);
-  const [showMenu, setShowMenu] = React.useState(false);
-
-  const handleShowNavbar = () => {
-    setShowNavbar(!showNavbar);
-  };
-
-
-  const handleSignOut = () => {
-    updateToken("");
-    localStorage.clear();
-    navigate("/login")
-  }
- 
-
   return (
-    
+    // <div className="header-bg">
+    //   <div className="d-flex  justify-content-between align-items-center">
+    //     <img
+    //       src={logo}
+    //       alt="logo"
+    //       height={40}
+    //       className=""
+    //       style={{ marginTop: 11 }}
+    //     />
+    //     <img
+    //       src={logo2}
+    //       height={40}
+    //       alt="logo"
+    //       className=""
+    //       style={{ marginTop: 11 }}
+    //     />
 
-    <section className="navigation">
-      <div className="nav-container">
-        <div className="brand">
+    //     <div>
+    //       <ul className="d-flex" style={{ listStyle: "none" }}>
+    //         <li>About</li>
+    //         <li>Product</li>
+    //         <li>Login / SignUp</li>
+    //       </ul>
+    //     </div>
+    //   </div>
+    // </div>
+    <div id="header" className="header-bg">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+          <div class="navbar-brand d-block d-lg-none" href="#">
+            <Link to={"/"}>
+              <img src={logo2} alt="logo" />
+            </Link>
+          </div>
+          <button
+            class="navbar-toggler navbar_toggle"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
           <div
-            className="logo"
-            style={{
-              color: "#e3cd9f",
-              textDecoration: "upperCase",
-              fontSize: 25,
-            }}
+            class="collapse navbar-collapse"
+            style={{ height: 57 }}
+            id="navbarSupportedContent"
           >
-            One Stop AI
-          </div>
-        </div>
-        <nav>
-          <div className="nav-mobile">
-            <a
-              onClick={() => {
-                handleShowNavbar();
-              }}
-              id="nav-toggle"
-              href="#!"
-              className={`${showNavbar ? "active" : ""}`}
-            >
-              <span></span>
-            </a>
-          </div>
-          <ul
-            className="nav-list"
-            style={{ display: showNavbar ? "block" : "none" }}
-          >
-            <li className="custom-li-hover">
-              <NavLink to="/">Home</NavLink>
-            </li>
-            <li className="custom-li-hover">
-              <NavLink to="/about">About</NavLink>
-            </li>
-            <li className="custom-li-hover">
-              <NavLink to="/product">Products</NavLink>
-            </li>
-            <li className="custom-li-hover">
-              <NavLink to="/ositoken">OSI Token</NavLink>
-            </li>
-            {token ? (
-              <li>
-                <NavLink onClick={() => setShowMenu(!showMenu)}>
-                  <i className="fa fa-user" aria-hidden="true"></i>
-                  <span style={{ marginLeft: 5 }}>
-                    {" "}
-                    {userDetails?.firstName}
-                  </span>
-                </NavLink>
-
-                <ul
-                  onMouseLeave={() => setShowMenu(false)}
-                  className="nav-dropdown"
-                  style={{ display: showMenu ? "block" : "none" }}
+            <ul class="navbar-nav w-100">
+              <li class="nav-item">
+                <Link
+                  to={"/"}
+                  class="nav-link active"
+                  aria-current="page"
+                  href="#"
                 >
-                  <li className="custom-li-hover">
-                    <NavLink to="/profile">Profile</NavLink>
-                  </li>
-                  <li className="custom-li-hover">
-                    <NavLink to="/manageToken">Manage Token</NavLink>
-                  </li>
-                  <li className="custom-li-hover">
-                    <NavLink onClick={(e) => {handleSignOut();}}>Log Out</NavLink>
-                  </li>
-                </ul>
+                  <img src={logo} height={39} alt="logo" />
+                </Link>
               </li>
-            ) : (
-              <li>
-                <NavLink to="/login">Log In / Sign Up</NavLink>
+            </ul>
+            <div
+              class="navbar-brand d-none d-lg-block"
+              style={{ marginRight: 0, marginTop: 26 }}
+              href="#"
+            >
+              <Link to={"/"} href="#">
+                <img src={logo2} height={60} alt="logo" />
+              </Link>
+            </div>
+            <ul class="navbar-nav w-100 justify-content-end">
+              <li class="nav-item">
+                <Link to={"/about"} class="nav-link" href="#">
+                  ABOUT
+                </Link>
               </li>
-            )}
-          </ul>
+              <li class="nav-item">
+                <Link to={"/product"} class="nav-link" href="#">
+                  PRODUCT
+                </Link>
+              </li>
+              <li class="nav-item">
+                <Link to={"/login"} class="nav-link" href="#">
+                  log in / SIGN UP
+                </Link>
+              </li>
+            </ul>
+          </div>
         </nav>
       </div>
-    </section>
+    </div>
   );
 };
 

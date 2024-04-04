@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import "./LoginSignUp.css";
+import "../Styles/LoginSignUp.css";
 import { Link, useNavigate } from "react-router-dom";
 import { loginUser } from "../libs/api";
 import { useToasts } from "react-toast-notifications";
@@ -94,7 +94,14 @@ const Login = () => {
               />
             </div>
 
-            <button className="login-button">LOG IN</button>
+            <button
+              className="login-button"
+              onClick={(e) => {
+                handleSubmit(e);
+              }}
+            >
+              LOG IN
+            </button>
 
             <Link to={"/forgetpassword"} className="mt-2">
               forgot your password?

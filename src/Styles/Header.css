@@ -1,185 +1,66 @@
-.navigation {
-  height: 70px;
-  background: #262626;
+.header-bg {
+  background-image: url("../Images/header-background.png");
+  background-size: cover;
+  height: 90px;
+  background-repeat: no-repeat;
 }
-.brand {
-  position: absolute;
-  padding-left: 20px;
-  float: left;
-  line-height: 70px;
-  text-transform: uppercase;
-  font-size: 1.4em;
+
+/*------------------------------
+    Template name: Bootstrap 5 Center logo 
+    Author name: Md Enjamul Islam
+    Author URI: https://github.com/mdenjamulislam
+--------------------------------*/
+
+body {
+  font-family: cursive;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 30px;
+  color: #585858;
 }
-.brand a,
-.brand a:visited {
-  color: #fff;
+#header {
+  background-color: #074774;
+  overflow: hidden;
+}
+.navbar {
+  padding: 15px 0;
+}
+.navbar-brand {
+}
+.navbar a {
   text-decoration: none;
 }
-.nav-container {
-  max-width: 100%;
-  margin: 0 40px;
-}
-nav {
-  float: right;
-}
-nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-nav ul li {
-  float: left;
-  position: relative;
-}
-nav ul li a {
-  display: block;
-  padding: 0 20px;
-  line-height: 70px;
-  background: #262626;
+h2.logo {
+  font-size: 28px;
+  font-weight: 400;
   color: #fff;
-  text-decoration: none;
 }
-/* nav ul li a:hover,
-nav ul li a:visited:hover {
-  background: #2581dc;
+h2.logo strong {
+  font-size: 35px;
+  color: #edf828;
+  font-weight: 600;
+}
+h2.center-logo {
+  margin: 0 25px;
+}
+#navbarSupportedContent {
+  justify-content: center;
+}
+ul.navbar-nav {
+}
+ul.navbar-nav li.nav-item {
+  margin-right: 25px;
+}
+ul.navbar-nav li.nav-item:last-child {
+  margin-right: 0;
+}
+ul.navbar-nav li.nav-item a.nav-link {
   color: #fff;
-} */
-nav ul li a:not(:only-child):after,
-nav ul li a:visited:not(:only-child):after {
-  padding-left: 4px;
-  content: " ▾";
 }
-nav ul li ul li {
-  min-width: 190px;
+.navbar-light .navbar-nav .nav-link.active,
+.navbar-light .navbar-nav .show > .nav-link {
+  color: #edf828;
 }
-nav ul li ul li a {
-  padding: 15px;
-  line-height: 20px;
-}
-
-.custom-li-hover:hover:after {
-  background-color: #e3cd9f;
-  bottom: -4px;
-  content: "";
-  height: 2px;
-  left: 7px;
-  position: absolute;
-  width: 90%;
-  top: 52px;
-}
-.custom-li-hover a.active:after {
-  background-color: #e3cd9f;
-  bottom: -4px;
-  content: "";
-  height: 2px;
-  left: 7px;
-  position: absolute;
-  width: 90%;
-  top: 52px;
-}
-.custom-li-hover a.active {
-  color: #e3cd9f;
-  font-weight: 500;
-  position: relative;
-}
-
-.nav-dropdown {
-  position: absolute;
-  display: none;
-  right: 0;
-  z-index: 1;
-  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
-}
-/* Mobile navigation */
-.nav-mobile {
-  display: none;
-  position: absolute;
-  top: 0;
-  right: 0;
-  background: #262626;
-  height: 70px;
-  width: 70px;
-}
-
-.main-view {
-  min-height: calc(100vh - 134px);
-  overflow: auto;
-  width: 100%;
-}
-
-@media only screen and (max-width: 798px) {
-  .nav-mobile {
-    display: block;
-  }
-
-  .nav-container {
-    max-width: 100%;
-    margin: 0 auto;
-  }
-  nav {
-    width: 100%;
-    padding: 70px 0 15px;
-  }
-  nav ul li {
-    float: none;
-  }
-  nav ul li a {
-    padding: 15px;
-    line-height: 20px;
-  }
-  nav ul li ul li a {
-    padding-left: 30px;
-  }
-  .nav-dropdown {
-    position: static;
-  }
-}
-@media screen and (min-width: 799px) {
-  .nav-list {
-    display: block !important;
-  }
-}
-#nav-toggle {
-  position: absolute;
-  left: 18px;
-  top: 22px;
-  cursor: pointer;
-  padding: 10px 35px 16px 0px;
-}
-#nav-toggle span,
-#nav-toggle span:before,
-#nav-toggle span:after {
-  cursor: pointer;
-  border-radius: 1px;
-  height: 5px;
-  width: 35px;
-  background: #fff;
-  position: absolute;
-  display: block;
-  content: "";
-  transition: all 300ms ease-in-out;
-}
-#nav-toggle span:before {
-  top: -10px;
-}
-#nav-toggle span:after {
-  bottom: -10px;
-}
-#nav-toggle.active span {
-  background-color: transparent;
-}
-#nav-toggle.active span:before,
-#nav-toggle.active span:after {
-  top: 0;
-}
-#nav-toggle.active span:before {
-  transform: rotate(45deg);
-}
-#nav-toggle.active span:after {
-  transform: rotate(-45deg);
-}
-article {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 10px;
+ul.navbar-nav li.nav-item a.nav-link:hover {
+  color: #edf828;
 }

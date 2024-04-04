@@ -1,3 +1,15 @@
+@font-face {
+  font-family: "Aboro";
+  /* You can choose any name for your font */
+  src: url("../Fonts/Aboro.ttf") format("truetype");
+
+  /* src: url('../fonts//Asap-Medium.otf') format('otf'); */
+  /* Add more src lines for different font formats if available */
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* Page.css (for all pages) */
 h1 {
   font-size: 36px;
@@ -11,6 +23,217 @@ p {
   line-height: 1.6;
 }
 
+.home-title {
+  width: 100%;
+  margin-top: 60px;
+  height: 77px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: "Aboro";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 67px;
+  line-height: 77px;
+  /* identical to box height */
+  letter-spacing: 0.11em;
+
+  background: linear-gradient(
+    341.12deg,
+    #868686 12.62%,
+    #b3b3b3 30.19%,
+    #fdfdfd 51.12%,
+    #fdfdfd 60.84%,
+    #9d9ea2 75.04%,
+    #5e5e5e 81.4%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+.home-title-2 {
+  /* Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna */
+
+  width: 600px;
+  margin-top: 20px;
+  text-align: center;
+  height: 59px;
+  left: 576px;
+  top: 295px;
+
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 150%;
+  /* or 27px */
+  text-align: center;
+  letter-spacing: 0.05em;
+
+  color: #ffffff;
+}
+
+.subTitle-2 {
+  /* One Product, Endless Business Opportunities */
+
+  width: 864.54px;
+  left: 520px;
+  top: 2209px;
+
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 50px;
+  line-height: 139%;
+  /* or 69px */
+  text-align: center;
+  letter-spacing: 0.02em;
+
+  background: linear-gradient(
+    89.99deg,
+    #ffffff 0.01%,
+    #8e8e8e 17.01%,
+    #ffffff 41.5%,
+    #9a9999 53.5%,
+    #d2d2d2 65%,
+    #898888 78.49%,
+    #ffffff 99.99%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+.subTitle-3 {
+  /* Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna */
+
+  width: 784.83px;
+
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 150%;
+  /* or 27px */
+  text-align: center;
+  letter-spacing: 0.05em;
+
+  color: #ffffff;
+}
+
+.home-btn {
+  /* Button */
+
+  width: 201.32px;
+  height: 59.27px;
+
+  background: linear-gradient(
+    90deg,
+    #ed4292 6.5%,
+    #d121ca 33.5%,
+    #ab00ff 60%,
+    #00afcb 87.5%
+  );
+  border-radius: 50px;
+}
+
+.home-btn > span {
+  /* Log In */
+
+  width: 155.33px;
+  height: 26.57px;
+
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 150%;
+  /* or 30px */
+  text-align: center;
+  letter-spacing: 0.05em;
+
+  color: #ffffff;
+}
+
+.home-feature {
+  /* background-image: url("../Images/net-wave.png"); */
+  /* features */
+
+  /* Note: backdrop-filter has minimal browser support */
+}
+
+.home-main {
+  max-width: 1200px;
+  margin: 0 auto;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0;
+  padding: 1rem;
+}
+
+.home-feature-cards {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  /* Rectangle 22672 */
+}
+
+.home-feature-cards_item {
+  display: flex;
+  padding: 1rem;
+}
+
+.home-feature-card {
+  width: 222px;
+  height: 222px;
+
+  background: linear-gradient(
+    180deg,
+    rgba(71, 114, 154, 0.12) 0%,
+    rgba(183, 220, 255, 0.26) 100%
+  );
+  border-radius: 52px;
+  box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.home-feature-card_content {
+  padding: 1rem;
+  /* background: linear-gradient(to bottom left, #ef8d9c 40%, #ffc39e 100%); */
+}
+
+.home-feature-card_title {
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+  margin: 0px;
+}
+
+.home-feature-card_text {
+  margin-bottom: 1.25rem;
+  /* Lorem ipsum Lorem ipsum */
+
+  height: 66px;
+
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 150%;
+  /* or 33px */
+  text-align: center;
+
+  color: rgba(255, 255, 255, 0.4);
+}
 /* Add specific styling for each page as needed */
 
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap");
@@ -271,7 +494,7 @@ body {
   }
 
   .hero {
-    background: url("../Images/AI-Background.gif");
+    /* background: url("../Images/AI-Background.gif"); */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
