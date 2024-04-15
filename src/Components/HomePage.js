@@ -10,7 +10,7 @@ import BrandLogo from "../Images/brandLogo.png";
 import BrandLogo2 from "../Images/brandLogo2.png";
 const HomePage = () => {
   return (
-    <div>
+    <div className="home-bg">
       <div className="d-flex justify-content-center w-100 align-items-center flex-column">
         <img className="mt-5" src={TextLogo} width={350} alt="logo" />
         <span className="home-title-2">

@@ -10,6 +10,11 @@
   font-display: swap;
 }
 
+.home-bg {
+  background-image: url("../Images/BACKGROUND-IMAGE.jpg");
+  background-size: cover;
+}
+
 /* Page.css (for all pages) */
 h1 {
   font-size: 36px;
